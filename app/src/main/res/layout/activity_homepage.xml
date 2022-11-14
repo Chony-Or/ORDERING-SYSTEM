@@ -202,16 +202,6 @@
             android:layout_marginTop="27dp"
             app:backgroundTint="#2B2B2B" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="3dp"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-
-            app:layout_anchor="@id/app_bar"
-            app:maxImageSize="60dp" />
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
