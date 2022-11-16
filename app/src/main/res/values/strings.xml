@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ORDERING SYSTEM</string>
+
+    <string-array name="products">
+        <item>Coke</item>
+        <item>Pepsi</item>
+        <item>Royal</item>
+        <item>Sprite</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>This is random description</item>
+    </string-array>
 </resources>
