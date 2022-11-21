@@ -1,69 +1,99 @@
 package com.example.orderingsystem;
 
 import android.content.Context;
-import android.view.ContentInfo;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
+import com.bumptech.glide.Glide;
 
-    ProductData[] productData;
+import java.util.ArrayList;
+
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder>{
+
+    ArrayList<ProductData> productDatas;
     Context context;
 
-    public ProductAdapter(ProductData[] productData,Recyclerpage activity) {
-        this.productData = productData;
-        this.context = activity;
+    public ProductAdapter(Context context, ArrayList<ProductData> productDatas) {
+        this.productDatas = productDatas;
+        this.context = context;
+    }
+
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder
+    {
+        private ImageView product_picture;
+        private TextView product_name;
+        private TextView product_price;
+        private LinearLayout product_container;
+
+        public MyViewHolder(@NonNull View view) {
+            super(view);
+
+            product_name = view.findViewById(R.id.product_name);
+            product_price = view.findViewById(R.id.product_price);
+            product_picture = view.findViewById(R.id.product_picture);
+            product_container = view.findViewById(R.id.product_container);
+
+
+
+        }
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.product_item_list,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.product_item_list,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ProductData productDataList = productData[position];
-        holder.productName.setText(productDataList.getProductName());
-        holder.productPrice.setText(productDataList.getProductPrice());
-        holder.productImage.setImageResource(productDataList.getProductImage());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        ProductData productData = productDatas.get(position);
+        holder.product_name.setText(productData.getProduct_name());
+        holder.product_price.setText(productData.getProduct_price().toString());
+        Glide.with(context).load(productData.getProduct_picture()).into(holder.product_picture);
+        Log.d("glide", String.valueOf(context));
+         holder.product_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,productDataList.getProductName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,productData.getProduct_name(),Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context,Productpage.class);
+
+                intent.putExtra("product_name",productData.getProduct_name());
+                intent.putExtra("product_price",productData.getProduct_price());
+                intent.putExtra("product_stock",productData.getProduct_stock());
+                intent.putExtra("product_picture",productData.getProduct_picture());
+
+
             }
         });
 
     }
 
+
     @Override
-    public int getItemCount() {
-        return productData.length;
+    public int getItemCount()
+    {
+
+            return productDatas.size();
+
+
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView productImage;
-        TextView productName;
-        TextView productPrice;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            productImage = itemView.findViewById(R.id.productImage);
-            productName = itemView.findViewById(R.id.productName);
-            productPrice = itemView.findViewById(R.id.productPrice);
-
-        }
-    }
 
 }

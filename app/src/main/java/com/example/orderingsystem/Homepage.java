@@ -1,20 +1,20 @@
 package com.example.orderingsystem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Objects;
 
 public class Homepage extends AppCompatActivity {
 
+    ImageView imageView1;
     TextView profile_tv,home_tv,softdrinks_seeAll,juice_seeAll;
     FloatingActionButton floatingButton;
     @Override
@@ -72,6 +72,14 @@ public class Homepage extends AppCompatActivity {
         softdrinks_seeAll =(TextView) findViewById(R.id.softdrinks_seeAll);
         juice_seeAll = (TextView) findViewById(R.id.juice_seeAll);
         floatingButton = (FloatingActionButton) findViewById(R.id.floatingButton);
+        imageView1 = (ImageView) findViewById(R.id.imageView1);
+    }
+
+    public void getimage()
+    {
+//        setTitle("Glide Demo");
+//        Glide.with(this).load();
+
     }
 
 }
