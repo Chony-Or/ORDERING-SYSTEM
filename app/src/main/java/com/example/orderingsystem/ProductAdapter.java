@@ -64,8 +64,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         ProductData productData = productDatas.get(position);
         holder.product_name.setText(productData.getProduct_name());
         holder.product_price.setText(productData.getProduct_price().toString());
-        Glide.with(context).load(productData.getProduct_picture()).into(holder.product_picture);
-        Log.d("glide", String.valueOf(context));
+        Glide.with(context).load(Constants.get_image + productData.getProduct_picture()).into(holder.product_picture);
+        Log.d("glide", String.valueOf(productData.getProduct_picture()));
          holder.product_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
