@@ -30,7 +30,7 @@ public class Recyclerpage extends AppCompatActivity {
     private ProductAdapter mAdapter;
     //public RecyclerView.LayoutManager layoutManager;
     public ArrayList<ProductData> listproducts = new ArrayList<>();
-    private static final String BASE_URL ="http:/192.168.8.100/test_conn/getProducts.php";
+    private static final String BASE_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getProducts.php";
     FloatingActionButton floatingButton;
 
 
@@ -109,14 +109,9 @@ public class Recyclerpage extends AppCompatActivity {
 
                                 ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
                                 listproducts.add(product);
-
                             }
-                            Log.d("te"," " + listproducts.size());
-//                            recyclerView = findViewById(R.id.recyclerView);
-//                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Recyclerpage.this);
-//                            recyclerView.setLayoutManager(linearLayoutManager);
-//                            recyclerView.setHasFixedSize(true);
 
+                            Log.d("te"," " + listproducts.size());
                             mAdapter = new ProductAdapter(Recyclerpage.this,listproducts);
                             recyclerView.setAdapter(mAdapter);
 
@@ -142,52 +137,4 @@ public class Recyclerpage extends AppCompatActivity {
         home_tv = (TextView) findViewById(R.id.home_tv);
         floatingButton = (FloatingActionButton) findViewById(R.id.floatingButton);
     }
-//    public void getProducts()
-//    {
-//        // pass data
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//
-//                        try {
-//                            JSONArray array = new JSONArray(response);
-//
-//                            for(int i = 0; i<array.length();i++)
-//                            {
-//                                JSONObject object = array.getJSONObject(i);
-//                                Integer product_id = object.getInt("product_id");
-//                                String product_name = object.getString("product_name");
-//                                Double product_price = object.getDouble("product_price");
-//                                Integer product_stock = object.getInt("product_stock");
-//                                String product_code = object.getString("product_code");
-//                                String product_picture = object.getString("product_picture");
-//
-//
-//
-//                                ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
-//                                listproducts.add(product);
-//
-//                            }
-//                            int a = listproducts.size();
-//                            Toast.makeText(getApplicationContext(),String.valueOf(a),Toast.LENGTH_LONG).show();
-//                        }catch(Exception e)
-//                        {
-//                            Toast.makeText(Recyclerpage.this, e.toString(),Toast.LENGTH_LONG).show();
-//                        }
-//
-//
-//                        mAdapter = new ProductAdapter(Recyclerpage.this,listproducts);
-//                        recyclerView.setAdapter(mAdapter);
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//                Toast.makeText(Recyclerpage.this, error.toString(),Toast.LENGTH_LONG).show();
-//        }
-//    });
-//
-//    }
-
 }

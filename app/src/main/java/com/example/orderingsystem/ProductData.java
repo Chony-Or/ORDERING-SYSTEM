@@ -16,7 +16,6 @@ public class ProductData {
         this.product_stock = product_stock;
         this.product_code = product_code;
         this.product_picture = product_picture;
-
     }
 
 
@@ -67,9 +66,6 @@ public class ProductData {
     public void setProduct_picture(String product_picture) {
         this.product_picture = product_picture;
     }
-
-
-
 
 
 
