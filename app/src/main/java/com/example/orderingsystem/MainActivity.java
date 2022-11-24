@@ -17,7 +17,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b_login;
+    Button b_login, b_guest;
     EditText customer_name;
     EditText customer_password;
     private static final String BASE_URL ="http:/192.168.8.100/db_conn/getProducts.php";
@@ -29,7 +29,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-
+        b_guest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this ,Homepage.class);
+                startActivity(intent);
+            }
+        });
         b_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         b_login = (Button) findViewById(R.id.b_login);
         customer_name = (EditText) findViewById(R.id.customer_name);
         customer_password = (EditText) findViewById(R.id.customer_password);
+        b_guest = findViewById(R.id.b_guest);
     }
 
     public void login()
