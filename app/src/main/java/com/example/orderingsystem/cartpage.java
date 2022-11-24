@@ -87,10 +87,10 @@ public class cartpage extends AppCompatActivity {
 
                             }
                             Log.d("te", " " + cartListProducts.size());
-//                            recyclerView = findViewById(R.id.recyclerView);
-//                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Recyclerpage.this);
-//                            recyclerView.setLayoutManager(linearLayoutManager);
-//                            recyclerView.setHasFixedSize(true);
+                            cartProductsView = findViewById(R.id.cartProductsView);
+                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(cartpage.this);
+                            cartProductsView.setLayoutManager(linearLayoutManager);
+                            cartProductsView.setHasFixedSize(true);
 
                             cartAdapter = new CartAdapter(cartpage.this, cartListProducts);
                             cartProductsView.setAdapter(cartAdapter);
