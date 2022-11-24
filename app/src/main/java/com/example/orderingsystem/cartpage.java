@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,10 @@ public class cartpage extends AppCompatActivity {
     public ArrayList<CartData> cartListProducts = new ArrayList<>();
     private static final String BASE_URL ="http:/192.168.8.100/test_conn/getProducts.php";
     FloatingActionButton floatingButton;
+    TextView total_tv;
+    Button checkbox_btn;
+    CheckBox selectAll_cb;
+
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,14 @@ public class cartpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(cartpage.this, Homepage.class);
+                startActivity(intent);
+            }
+        });
+
+        checkbox_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(cartpage.this, Receiptpage.class);
                 startActivity(intent);
             }
         });
@@ -120,6 +134,9 @@ public class cartpage extends AppCompatActivity {
         cartProductsView.setHasFixedSize(true);
         CartAdapter cAdapter = new CartAdapter(this, cartListProducts);
         cartProductsView.setAdapter(cAdapter);
+        total_tv = findViewById(R.id.total_tv);
+        checkbox_btn = findViewById(R.id.checkout_btn);
+        selectAll_cb = findViewById(R.id.selectAll_cb);
 
     }
 }
