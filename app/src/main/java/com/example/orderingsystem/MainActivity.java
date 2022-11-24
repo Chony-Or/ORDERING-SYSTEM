@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     //method getting for customer data
     public void getUserdata() throws JSONException {
-
+//
         String[] field = new String[1];
         field[0] = "customer_name"; // Fields in the database
         String[] data = new String[1];
