@@ -7,8 +7,8 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
         android:layout_margin="10dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="10dp"
@@ -16,8 +16,8 @@
 
         <LinearLayout
             android:id="@+id/cartLinearLayout"
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
             android:orientation="horizontal">
 
             <CheckBox
@@ -37,7 +37,7 @@
                 android:src="@drawable/img_1" />
 
             <LinearLayout
-                android:layout_width="292dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
