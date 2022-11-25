@@ -35,6 +35,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         private ImageView product_picture;
         private TextView product_name;
         private TextView product_price;
+        private TextView product_stock;
         private LinearLayout product_container;
 
         public MyViewHolder(@NonNull View view) {
@@ -42,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
             product_name = view.findViewById(R.id.product_name);
             product_price = view.findViewById(R.id.product_price);
+            product_stock = view.findViewById(R.id.product_stock);
             product_picture = view.findViewById(R.id.product_picture);
             product_container = view.findViewById(R.id.product_container);
 
@@ -64,8 +66,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         ProductData productData = productDatas.get(position);
         holder.product_name.setText(productData.getProduct_name());
         holder.product_price.setText(productData.getProduct_price().toString());
+        holder.product_stock.setText(productData.getProduct_stock().toString());
         Glide.with(context).load(Constants.get_image + productData.getProduct_picture()).into(holder.product_picture);
         Log.d("glide", String.valueOf(productData.getProduct_picture()));
+
          holder.product_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,21 +80,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 intent.putExtra("product_name",productData.getProduct_name());
                 intent.putExtra("product_price",productData.getProduct_price());
                 intent.putExtra("product_stock",productData.getProduct_stock());
+                Log.d("STOCKS", String.valueOf(productData.getProduct_stock()));
                 intent.putExtra("product_picture",productData.getProduct_picture());
-
-
+                context.startActivity(intent);
             }
         });
 
     }
-
-
     @Override
     public int getItemCount()
     {
-
             return productDatas.size();
-
 
     }
 

@@ -7,28 +7,52 @@
     tools:context=".Productpage">
 
     <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:text="DETAILS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:text="Stocks: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.585" />
+
+    <TextView
         android:id="@+id/productDetails_stocks"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="STOCKS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintVertical_bias="0.587" />
 
     <TextView
         android:id="@+id/productDetails_price"
-        android:layout_width="wrap_content"
+        android:layout_width="47dp"
         android:layout_height="19dp"
         android:text="PRICE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
+        app:layout_constraintVertical_bias="0.541" />
 
     <TextView
         android:id="@+id/productDetails_name"
@@ -37,19 +61,70 @@
         android:text="NAME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.541" />
 
     <ImageView
         android:id="@+id/productDetails_picture"
-        android:layout_width="221dp"
-        android:layout_height="264dp"
+        android:layout_width="324dp"
+        android:layout_height="276dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097"
+        app:layout_constraintVertical_bias="0.048"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <Button
+                android:id="@+id/b_addcart"
+                android:layout_width="205dp"
+                android:layout_height="70dp"
+                android:text="Add to Cart" />
+
+            <Button
+                android:id="@+id/b_checkout"
+                android:layout_width="205dp"
+                android:layout_height="70dp"
+                android:text="CHECK OUT" />
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:text="Price:  PHP  "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.541" />
 </androidx.constraintlayout.widget.ConstraintLayout>

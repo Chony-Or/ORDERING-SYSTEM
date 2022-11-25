@@ -39,7 +39,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
                 <TextView
-                    android:id="@+id/client2"
+                    android:id="@+id/Rcustomer_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -49,10 +49,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.061"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/client" />
+                    app:layout_constraintTop_toBottomOf="@+id/Rcustomer_name" />
 
                 <TextView
-                    android:id="@+id/id_no"
+                    android:id="@+id/Rinvoice_number"
                     android:layout_width="161dp"
                     android:layout_height="44dp"
                     android:layout_marginTop="24dp"
@@ -133,7 +133,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.071"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/id_no" />
+                    app:layout_constraintTop_toBottomOf="@+id/Rinvoice_number" />
 
                 <ImageView
                     android:id="@+id/imageView15"
@@ -147,7 +147,7 @@
                     app:srcCompat="@drawable/circle_logo" />
 
                 <TextView
-                    android:id="@+id/client_adress"
+                    android:id="@+id/Rcustomer_address"
                     android:layout_width="325dp"
                     android:layout_height="55dp"
                     android:layout_marginTop="12dp"
@@ -155,7 +155,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.252"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/client2" />
+                    app:layout_constraintTop_toBottomOf="@+id/Rcustomer_number" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -169,7 +169,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
                 <TextView
-                    android:id="@+id/client"
+                    android:id="@+id/Rcustomer_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -199,7 +199,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.428"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/client_adress">
+                    app:layout_constraintTop_toBottomOf="@+id/Rcustomer_address">
 
                     <TableRow
                         android:layout_width="match_parent"
