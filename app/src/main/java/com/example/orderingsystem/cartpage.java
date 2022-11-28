@@ -1,6 +1,9 @@
 package com.example.orderingsystem;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,28 +27,69 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class cartpage extends AppCompatActivity {
 
     TextView profile_tv,home_tv;
-    public RecyclerView cartProductsView;
+    public RecyclerView recyclerView;
     private CartAdapter cartAdapter;
-    //public RecyclerView.LayoutManager layoutManager;
     public ArrayList<CartData> cartListProducts = new ArrayList<>();
-    private static final String BASE_URL ="http:/192.168.8.100/test_conn/getProducts.php";
+    private final String BASE_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getProducts.php";
     FloatingActionButton floatingButton;
     TextView total_tv;
     Button checkbox_btn;
     CheckBox selectAll_cb;
 
-    
+
+
+    @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cartpage);
 
-
+        SQLiteDatabase db = openOrCreateDatabase("Hold_Order",MODE_PRIVATE,null);
         init();
+
+
+        recyclerView = findViewById(R.id.cartProductsRView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+
+        Cursor cursor = db.rawQuery("select * from ProductOrder_tbl",null);
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+
+                Integer product_id;
+                Integer customer_id;
+                String product_name;
+                Integer quantity;
+                Double amount;
+                String product_picture;
+
+                product_id = cursor.getInt(cursor.getColumnIndex("product_id"));
+                customer_id = cursor.getInt(cursor.getColumnIndex("customer_id"));
+                product_name = cursor.getString(cursor.getColumnIndex("product_name"));
+                quantity = cursor.getInt(cursor.getColumnIndex("quantity"));
+                amount = cursor.getDouble(cursor.getColumnIndex("amount"));
+                product_picture = cursor.getString(cursor.getColumnIndex("product_picture"));
+
+                CartData cartData = new CartData(product_id, customer_id, product_name, quantity, amount, product_picture);
+                cartListProducts.add(cartData);
+
+                cursor.moveToNext();
+            }
+            cartAdapter = new CartAdapter(cartpage.this, cartListProducts);
+            recyclerView.setAdapter(cartAdapter);
+        }
+
+        Log.d("cart list", " " + cartListProducts.size());
+
+
 
         profile_tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,68 +116,11 @@ public class cartpage extends AppCompatActivity {
             }
         });
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("satryto", "TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSST");
-                        try {
-
-                            Log.d("satryto", "ayoown");
-                            Log.i("tagconvertstr", "[" + response + "]");
-
-                            JSONArray array = new JSONArray(response);
-
-                            for (int i = 0; i < array.length(); i++) {
-                                Log.d("tag", "PUMASOK NAAA");
-                                JSONObject object = array.getJSONObject(i);
-                                Integer product_id = object.getInt("product_id");
-                                String product_name = object.getString("product_name");
-                                Double product_price = object.getDouble("product_price");
-                                Integer product_stock = object.getInt("product_stock");
-                                String product_code = object.getString("product_code");
-                                String product_picture = object.getString("product_picture");
-
-
-                                CartData product = new CartData(product_id, product_name, product_price, product_stock, product_code, product_picture);
-                                cartListProducts.add(product);
-
-                            }
-                            Log.d("te", " " + cartListProducts.size());
-                            cartProductsView = findViewById(R.id.cartProductsView);
-                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(cartpage.this);
-                            cartProductsView.setLayoutManager(linearLayoutManager);
-                            cartProductsView.setHasFixedSize(true);
-
-                            cartAdapter = new CartAdapter(cartpage.this, cartListProducts);
-                            cartProductsView.setAdapter(cartAdapter);
-
-                        } catch (Exception e) {
-                            Log.d("test", e.toString());
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                Toast.makeText(cartpage.this, error.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-
-        Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
     }
     public void init() {
 
         profile_tv = (TextView) findViewById(R.id.profile_tv);
         home_tv = (TextView) findViewById(R.id.home_tv);
-
-        cartProductsView = findViewById(R.id.cartProductsView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        cartProductsView.setLayoutManager(linearLayoutManager);
-        cartProductsView.setHasFixedSize(true);
-        CartAdapter cAdapter = new CartAdapter(this, cartListProducts);
-        cartProductsView.setAdapter(cAdapter);
         total_tv = findViewById(R.id.total_tv);
         checkbox_btn = findViewById(R.id.checkout_btn);
         selectAll_cb = findViewById(R.id.selectAll_cb);

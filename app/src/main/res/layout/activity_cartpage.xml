@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".cartpage">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SHOPPING CART"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027" />
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
 
         android:id="@+id/coordinatorLayout"
@@ -31,7 +18,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -104,25 +91,29 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="350dp"
+        android:layout_width="410dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="46dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cartProductsView"
+            android:id="@+id/cartProductsRView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
     </LinearLayout>
 
     <TableRow
+        android:id="@+id/tableLayout"
         android:layout_width="413dp"
         android:layout_height="56dp"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="419dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp">
 
         <CheckBox
             android:id="@+id/selectAll_cb"

@@ -28,9 +28,8 @@ public class Recyclerpage extends AppCompatActivity {
     TextView profile_tv,home_tv;
     public RecyclerView recyclerView;
     private ProductAdapter mAdapter;
-    //public RecyclerView.LayoutManager layoutManager;
     public ArrayList<ProductData> listproducts = new ArrayList<>();
-    private static final String BASE_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getProducts.php";
+    private final String BASE_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getProducts.php";
     FloatingActionButton floatingButton;
 
 
@@ -42,7 +41,6 @@ public class Recyclerpage extends AppCompatActivity {
 
 
         init();
-        //        getProducts();
 
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -50,10 +48,6 @@ public class Recyclerpage extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         mAdapter = new ProductAdapter(this,listproducts);
         recyclerView.setAdapter(mAdapter);
-
-
-        //recyclerView.setAdapter(mAdapter);
-
 
 
 

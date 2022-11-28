@@ -20,29 +20,29 @@ import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     ArrayList<CartData> cartDataList ;
-    Context cartpage;
+    Context context;
 
-    public CartAdapter(Context cartpage, ArrayList<CartData> cartDataList) {
+    public CartAdapter(Context context, ArrayList<CartData> cartDataList) {
         this.cartDataList = cartDataList;
-        this.cartpage = cartpage;
+        this.context = context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        private ImageView productImage;
+        public ImageView product_picture;
         private TextView productName;
         private TextView productPrice;
+        private TextView quantity;
         private LinearLayout cartLinearLayout;
 
         public ViewHolder(@NonNull View view) {
             super(view);
 
-            productName = view.findViewById(R.id.productName);
-            productPrice = view.findViewById(R.id.productPrice);
-            productImage = view.findViewById(R.id.productImage);
+            productName = view.findViewById(R.id.productName_tv);
+            productPrice = view.findViewById(R.id.productPrice_tv);
+            quantity = view.findViewById(R.id.quantity_tv);
+            product_picture = view.findViewById(R.id.productImage);
             cartLinearLayout = view.findViewById(R.id.cartLinearLayout);
-
-
 
         }
     }
@@ -50,36 +50,39 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.activity_cart_item_list, parent, false);
-        // = new RecyclerView.ViewHolder(view);
+
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_cart_item_list,parent,false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
+        CartData cartData = cartDataList.get(position);
+        holder.productName.setText(cartData.getProduct_name());
+        holder.productPrice.setText(String.valueOf(cartData.getAmount()));
+        holder.quantity.setText(String.valueOf(cartData.getQuantity()));
+        Glide.with(context).load(Constants.get_image + cartData.getProduct_picture()).into(holder.product_picture);
 
-        CartData cartDatas = cartDataList.get(position);
-        holder.productName.setText(CartData.getCartProductName());
-        holder.productPrice.setText(CartData.getCartProductPrice());
-        holder.productImage.setImageResource(CartData.getCartProductImage());
+        Log.e("cart Product name", String.valueOf(cartData.getProduct_name()));
+        Log.e("cart quantity", String.valueOf(cartData.getQuantity()));
+        Log.e("cart amount", String.valueOf(cartData.getAmount()));
+        Log.e("cart product_picture", String.valueOf(cartData.getProduct_picture()));
 
-      Glide.with(cartpage).load(Constants.get_image + cartDatas.getCartProductImage()).into(holder.productImage);
-       Log.d("glide", String.valueOf(cartDatas.getCartProductImage()));
+
+         Log.d("glidessssssss", String.valueOf(cartData.getProduct_picture()));
 
 
         holder.cartLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(cartpage, cartDatas.getCartProductName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, cartData.getProduct_name(),Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(cartpage,Productpage.class);
+                Intent intent = new Intent(context,Productpage.class);
 
-                intent.putExtra("productName",cartDatas.getCartProductName());
-                intent.putExtra("productPrice",cartDatas.getCartProductPrice());
-               // intent.putExtra("product_stock",cartDatas.getProduct_stock());
-                intent.putExtra("productImage",cartDatas.getCartProductImage());
+                intent.putExtra("productName",cartData.getProduct_name());
+                intent.putExtra("productPrice",cartData.getAmount());
+                intent.putExtra("quantity",cartData.getQuantity());
+                intent.putExtra("productImage",cartData.getProduct_picture());
             }
         });
 
@@ -89,6 +92,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public int getItemCount()
     {
         return cartDataList.size();
+    }
+/////////////////////////
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
 

@@ -64,6 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         ProductData productData = productDatas.get(position);
+
         holder.product_name.setText(productData.getProduct_name());
         holder.product_price.setText(productData.getProduct_price().toString());
         holder.product_stock.setText(productData.getProduct_stock().toString());
@@ -77,6 +78,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
                 Intent intent = new Intent(context,Productpage.class);
 
+                intent.putExtra("product_id",productData.getProduct_id());
                 intent.putExtra("product_name",productData.getProduct_name());
                 intent.putExtra("product_price",productData.getProduct_price());
                 intent.putExtra("product_stock",productData.getProduct_stock());

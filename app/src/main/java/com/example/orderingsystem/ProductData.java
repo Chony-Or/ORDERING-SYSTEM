@@ -66,30 +66,4 @@ public class ProductData {
     public void setProduct_picture(String product_picture) {
         this.product_picture = product_picture;
     }
-
-
-
-//    public String getProductName() {
-//        return productName;
-//    }
-//
-//    public void setProductName(String productName) {
-//        this.productName = productName;
-//    }
-//
-//    public String getProductPrice() {
-//        return productPrice;
-//    }
-//
-//    public void setProductPrice(String productPrice) {
-//        this.productPrice = productPrice;
-//    }
-//
-//    public Integer getProductImage() {
-//        return productImage;
-//    }
-//
-//    public void setProductmage(Integer ProductImage) {
-//        this.productImage = productImage;
-//    }
 }

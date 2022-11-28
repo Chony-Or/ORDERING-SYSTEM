@@ -94,26 +94,88 @@
 
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:gravity="end"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/b_addcart"
-                android:layout_width="205dp"
-                android:layout_height="70dp"
-                android:text="Add to Cart" />
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/b_checkout"
-                android:layout_width="205dp"
-                android:layout_height="70dp"
-                android:text="CHECK OUT" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Quantity: " />
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/decrement_bt"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColorLink="#E9EAEF"
+                    android:textSize="10sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/counter"
+                    android:layout_width="30dp"
+                    android:layout_height="23dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <Button
+                    android:id="@+id/increment_bt"
+                    android:layout_width="34dp"
+                    android:layout_height="match_parent"
+                    android:text="+"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColorHighlight="#BAAAAA"
+                    android:textColorLink="#EAEAEA"
+                    android:textSize="10sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </TableRow>
 
         </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/b_addcart"
+                    android:layout_width="205dp"
+                    android:layout_height="70dp"
+                    android:text="Add to Cart" />
+
+                <Button
+                    android:id="@+id/b_checkout"
+                    android:layout_width="205dp"
+                    android:layout_height="70dp"
+                    android:text="CHECK OUT" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <TextView
