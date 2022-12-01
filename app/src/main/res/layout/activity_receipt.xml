@@ -47,7 +47,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.061"
+                    app:layout_constraintHorizontal_bias="0.063"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/Rcustomer_name" />
 
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="Issued Date:"
+                    android:text="Order Date:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.068"
                     app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="₱ 000.00"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.915"
                     app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="PAID"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.191"
                     app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +120,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.373"
+                    app:layout_constraintHorizontal_bias="0.336"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -137,11 +139,11 @@
 
                 <ImageView
                     android:id="@+id/imageView15"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_width="74dp"
+                    android:layout_height="71dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.945"
+                    app:layout_constraintHorizontal_bias="0.95"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/circle_logo" />
@@ -161,10 +163,10 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="Invoice for"
+                    android:layout_marginTop="20dp"
+                    android:text="Delivery Address"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.066"
+                    app:layout_constraintHorizontal_bias="0.075"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -183,12 +185,19 @@
 
                 <Button
                     android:id="@+id/b_close"
-                    android:layout_width="99dp"
-                    android:layout_height="38dp"
-                    android:backgroundTint="#2D3C92"
-                    android:text="Close"
-                    tools:layout_editor_absoluteX="254dp"
-                    tools:layout_editor_absoluteY="534dp" />
+                    android:layout_width="423dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="114dp"
+                    android:layout_marginBottom="60dp"
+                    android:backgroundTint="#3F51B5"
+                    android:src="@android:drawable/ic_delete"
+                    android:text="Thank you!"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TableLayout
                     android:id="@+id/tableLayout"
@@ -203,7 +212,7 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="21dp" />
 
                     <TableRow
                         android:layout_width="match_parent"

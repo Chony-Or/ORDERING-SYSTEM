@@ -13,22 +13,23 @@
         android:text="DETAILS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="Stocks: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintVertical_bias="0.554" />
 
     <TextView
         android:id="@+id/productDetails_stocks"
@@ -37,10 +38,10 @@
         android:text="STOCKS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintHorizontal_bias="0.837"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintVertical_bias="0.554" />
 
     <TextView
         android:id="@+id/productDetails_price"
@@ -52,30 +53,31 @@
         app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintVertical_bias="0.523" />
 
     <TextView
         android:id="@+id/productDetails_name"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_width="112dp"
+        android:layout_height="34dp"
         android:text="NAME"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintVertical_bias="0.536" />
 
     <ImageView
         android:id="@+id/productDetails_picture"
-        android:layout_width="324dp"
-        android:layout_height="276dp"
+        android:layout_width="344dp"
+        android:layout_height="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048"
+        app:layout_constraintVertical_bias="0.169"
         tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -100,58 +102,6 @@
             android:gravity="end"
             android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Quantity: " />
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/decrement_bt"
-                    android:layout_width="34dp"
-                    android:layout_height="match_parent"
-                    android:text="-"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColorLink="#E9EAEF"
-                    android:textSize="10sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-                <TextView
-                    android:id="@+id/counter"
-                    android:layout_width="30dp"
-                    android:layout_height="23dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="0"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-                <Button
-                    android:id="@+id/increment_bt"
-                    android:layout_width="34dp"
-                    android:layout_height="match_parent"
-                    android:text="+"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColorHighlight="#BAAAAA"
-                    android:textColorLink="#EAEAEA"
-                    android:textSize="10sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </TableRow>
-
-        </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
@@ -163,12 +113,14 @@
                     android:id="@+id/b_addcart"
                     android:layout_width="205dp"
                     android:layout_height="70dp"
+                    android:backgroundTint="#FFC107"
                     android:text="Add to Cart" />
 
                 <Button
                     android:id="@+id/b_checkout"
                     android:layout_width="205dp"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#3F51B5"
                     android:text="CHECK OUT" />
 
             </LinearLayout>
@@ -183,10 +135,81 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="Price:  PHP  "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.748"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintVertical_bias="0.523" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Quantity: " />
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/decrement_bt"
+                android:layout_width="34dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFFFFF"
+                android:text="-"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#0B0A0A"
+                android:textColorLink="#E9EAEF"
+                android:textSize="10sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/counter"
+                android:layout_width="30dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            <Button
+                android:id="@+id/increment_bt"
+                android:layout_width="34dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FAF6F6"
+                android:text="+"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#0B0A0A"
+                android:textColorLink="#E9EAEF"
+                android:textSize="10sp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </TableRow>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="149dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/backbuttonwhite"
+        tools:layout_editor_absoluteY="7dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
