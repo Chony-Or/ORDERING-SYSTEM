@@ -1,11 +1,19 @@
 package com.example.orderingsystem;
 
+import static android.content.Context.MODE_PRIVATE;
+import static android.content.Intent.getIntent;
+import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,16 +23,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.ImageViewTargetFactory;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
+    private static final String deleteHoldProduct_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/deleteHoldproduct.php";
+    private CartAdapter cartAdapter;
     ArrayList<CartData> cartDataList ;
     Context context;
 
+    @SuppressLint("NotifyDataSetChanged")
     public CartAdapter(Context context, ArrayList<CartData> cartDataList) {
         this.cartDataList = cartDataList;
         this.context = context;
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -33,16 +47,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private TextView productName;
         private TextView productPrice;
         private TextView quantity;
+        private ImageButton delete_bt;
         private LinearLayout cartLinearLayout;
 
         public ViewHolder(@NonNull View view) {
             super(view);
 
+
             productName = view.findViewById(R.id.productName_tv);
             productPrice = view.findViewById(R.id.productPrice_tv);
             quantity = view.findViewById(R.id.quantity_tv);
             product_picture = view.findViewById(R.id.productImage);
+            delete_bt = view.findViewById(R.id.delete_bt);
             cartLinearLayout = view.findViewById(R.id.cartLinearLayout);
+
+
 
         }
     }
@@ -57,6 +76,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
+
         CartData cartData = cartDataList.get(position);
         holder.productName.setText(cartData.getProduct_name());
         holder.productPrice.setText(String.valueOf(cartData.getAmount()));
@@ -85,6 +105,50 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 intent.putExtra("productImage",cartData.getProduct_picture());
             }
         });
+
+        holder.delete_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        String[] field = new String[1];
+                        field[0] = "product_id"; // Fields in the database
+
+
+                        String[] data = new String[1];
+                        data[0] = String.valueOf(cartData.getProduct_id());
+
+
+                        PutData putData = new PutData(deleteHoldProduct_Url, "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult();
+
+                                if (result.equals("Delete Success")) {
+
+                                    Toast.makeText(context, "Delete Success", Toast.LENGTH_SHORT).show();
+//                                    cartpage cart = new cartpage();
+//                                    cart.reload();
+                                    notifyDataSetChanged();
+                                    Intent intent = new Intent(context,cartpage.class);
+                                    context.startActivity(intent);
+
+                                }
+
+                                //End ProgressBar (Set visibility to GONE)
+                                Log.i("PutData", result);
+                            }
+                        }
+                    }
+                });
+
+            }
+        });
+
 
     }
 

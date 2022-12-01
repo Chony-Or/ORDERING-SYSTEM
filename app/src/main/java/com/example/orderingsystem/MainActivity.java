@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), "testt", Toast.LENGTH_SHORT).show();
                             Toast.makeText(getApplicationContext(), c_name, Toast.LENGTH_SHORT).show();
 
                             String[] field = new String[2];
@@ -76,8 +75,10 @@ public class MainActivity extends AppCompatActivity {
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
+                                    Log.e("CHECKING", "PUMASOK DITO");
 
                                     if (result.equals("Login Success")) {
+                                        Log.e("CHECKING", "PUMASOK SUCCESS");
                                         try {
                                             getUserdata();
                                         } catch (JSONException e) {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.method.CharacterPickerDialog;
 import android.util.Log;
 import android.view.View;
@@ -16,9 +17,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import org.json.JSONException;
 
 public class Productpage extends AppCompatActivity {
 
+    private static final String putProduct_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/addHoldOrders.php";
     TextView productDetails_name,productDetails_price,productDetails_stocks, counter;
     ImageView productDetails_picture;
     Button b_addcart, b_checkout, decrement_bt, increment_bt;
@@ -145,37 +150,79 @@ public class Productpage extends AppCompatActivity {
 
     public void passdata()
     {
-        SQLiteDatabase db = openOrCreateDatabase("Hold_Order",MODE_PRIVATE,null);
+//        SQLiteDatabase db = openOrCreateDatabase("Hold_Order",MODE_PRIVATE,null);
+//
+//        Cursor cursor = db.rawQuery("SELECT * FROM ProductOrder_tbl WHERE product_id like '"+product_id+"'", null);
+//
+//        Log.e("cursor tooo", String.valueOf(cursor));
+//        if (cursor.moveToFirst()) {
+//            Log.e("IFFFFFFFFFFF", "PASS DITO");
+//            ContentValues data = new ContentValues();
+//            data.put("product_id",product_id);
+//            data.put("customer_id",customer_id );
+//            data.put("product_name",product_name);
+//            data.put("quantity ",quantity);
+//            data.put("amount ",amount);
+//            data.put("product_picture", product_picture);
+//
+//            db.update("ProductOrder_tbl",data, "product_id = ?", new String[]{String.valueOf(product_id)});
+//        }
 
-        Cursor cursor = db.rawQuery("SELECT * FROM ProductOrder_tbl WHERE product_id like '"+product_id+"'", null);
 
-        Log.e("cursor tooo", String.valueOf(cursor));
-        if (cursor.moveToFirst()) {
-            Log.e("IFFFFFFFFFFF", "PASS DITO");
-            ContentValues data = new ContentValues();
-            data.put("product_id",product_id);
-            data.put("customer_id",customer_id );
-            data.put("product_name",product_name);
-            data.put("quantity ",quantity);
-            data.put("amount ",amount);
-            data.put("product_picture", product_picture);
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
 
-            db.update("ProductOrder_tbl",data, "product_id = ?", new String[]{String.valueOf(product_id)});
-        }
+                String[] field = new String[6];
+                field[0] = "product_id"; // Fields in the database
+                field[1] = "customer_id";
+                field[2] = "product_name";
+                field[3] = "quantity";
+                field[4] = "amount";
+                field[5] = "product_picture";
 
-        else
-        {
-            Log.e("ELSEEEEE", "PASS DITO");
-            ContentValues data = new ContentValues();
-            data.put("product_id",product_id);
-            data.put("customer_id",customer_id );
-            data.put("product_name",product_name);
-            data.put("quantity ",quantity);
-            data.put("amount ",amount);
-            data.put("product_picture", product_picture);
+                String[] data = new String[6];
+                data[0] = String.valueOf(product_id);
+                data[1] = String.valueOf(customer_id);
+                data[2] = product_name;
+                data[3] = String.valueOf(quantity);
+                data[4] = String.valueOf(amount);
+                data[5] = product_picture;
 
-            db.insert("ProductOrder_tbl",null,data);
-        }
+                PutData putData = new PutData(putProduct_Url, "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        String result = putData.getResult();
+
+                        if (result.equals("Add Order Success")) {
+
+                            Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(MainActivity.this, Homepage.class);
+//                            startActivity(intent);
+//                            finish();
+                        }
+
+                        //End ProgressBar (Set visibility to GONE)
+                        Log.i("PutData", result);
+                    }
+                }
+            }
+        });
+
+//        else
+//        {
+//            Log.e("ELSEEEEE", "PASS DITO");
+//            ContentValues data = new ContentValues();
+//            data.put("product_id",product_id);
+//            data.put("customer_id",customer_id );
+//            data.put("product_name",product_name);
+//            data.put("quantity ",quantity);
+//            data.put("amount ",amount);
+//            data.put("product_picture", product_picture);
+//
+//            db.insert("ProductOrder_tbl",null,data);
+//        }
 
 
     }
