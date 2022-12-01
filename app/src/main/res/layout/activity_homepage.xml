@@ -178,7 +178,7 @@
                         app:srcCompat="@drawable/img_3" />
 
                     <TextView
-                        android:id="@+id/softdrinks_seeAll"
+                        android:id="@+id/seeAll_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp"

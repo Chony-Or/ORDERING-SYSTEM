@@ -17,8 +17,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -30,6 +32,9 @@ public class Recyclerpage extends AppCompatActivity {
     private ProductAdapter mAdapter;
     public ArrayList<ProductData> listproducts = new ArrayList<>();
     private final String BASE_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getProducts.php";
+    private final String getSpecificDrinks_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getSpecificDrinks.php";
+
+    private Integer data;
     FloatingActionButton floatingButton;
 
 
@@ -39,6 +44,9 @@ public class Recyclerpage extends AppCompatActivity {
         setContentView(R.layout.activity_recyclerpage);
 
 
+        Intent intent = getIntent();
+
+        data = intent.getIntExtra("data",0);
 
         init();
 
@@ -74,7 +82,9 @@ public class Recyclerpage extends AppCompatActivity {
             }
         });
 
-        // pass data
+        if (data == 5) // See all products
+        {
+            // pass data
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
                 new Response.Listener<String>() {
 
@@ -122,6 +132,184 @@ public class Recyclerpage extends AppCompatActivity {
             }
         });
         Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
+        }
+        else if (data == 1)
+        {
+            String[] field = new String[1];
+            field[0] = "productClass_id"; // Fields in the database
+            String[] data = new String[1];
+            data[0] = String.valueOf(data);
+
+            PutData putData = new PutData(getSpecificDrinks_URL, "POST", field, data);
+            if (putData.startPut()) {
+                if (putData.onComplete()) {
+                    String result = putData.getResult();
+                    Log.e("php",result);
+                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+
+                    try {
+                        JSONArray array = new JSONArray(result);
+
+                        for(int i = 0; i<array.length();i++)
+                        {
+                            Log.d("tag", "PUMASOK NAAA");
+                            JSONObject object = array.getJSONObject(i);
+                            Integer product_id = object.getInt("product_id");
+                            String product_name = object.getString("product_name");
+                            Double product_price = object.getDouble("product_price");
+                            Integer product_stock = object.getInt("product_stock");
+                            String product_code = object.getString("product_code");
+                            String product_picture = object.getString("product_picture");
+
+
+
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            listproducts.add(product);
+                        }
+
+                        Log.d("te"," " + listproducts.size());
+                        mAdapter = new ProductAdapter(Recyclerpage.this,listproducts);
+                        recyclerView.setAdapter(mAdapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                }
+            }
+        }
+        else if (data == 2)
+        {
+            String[] field = new String[1];
+            field[0] = "productClass_id"; // Fields in the database
+            String[] data = new String[1];
+            data[0] = String.valueOf(2);
+
+            PutData putData = new PutData(getSpecificDrinks_URL, "POST", field, data);
+            if (putData.startPut()) {
+                if (putData.onComplete()) {
+                    String result = putData.getResult();
+                    Log.e("php",result);
+                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+
+                    try {
+                        JSONArray array = new JSONArray(result);
+
+                        for(int i = 0; i<array.length();i++)
+                        {
+                            Log.d("tag", "PUMASOK NAAA");
+                            JSONObject object = array.getJSONObject(i);
+                            Integer product_id = object.getInt("product_id");
+                            String product_name = object.getString("product_name");
+                            Double product_price = object.getDouble("product_price");
+                            Integer product_stock = object.getInt("product_stock");
+                            String product_code = object.getString("product_code");
+                            String product_picture = object.getString("product_picture");
+
+
+
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            listproducts.add(product);
+                        }
+
+                        Log.d("te"," " + listproducts.size());
+                        mAdapter = new ProductAdapter(Recyclerpage.this,listproducts);
+                        recyclerView.setAdapter(mAdapter);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+        else if (data == 3)
+        {
+            String[] field = new String[1];
+            field[0] = "productClass_id"; // Fields in the database
+            String[] data = new String[1];
+            data[0] = String.valueOf(3);
+
+            PutData putData = new PutData(getSpecificDrinks_URL, "POST", field, data);
+            if (putData.startPut()) {
+                if (putData.onComplete()) {
+                    String result = putData.getResult();
+                    Log.e("php",result);
+                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+
+                    try {
+                        JSONArray array = new JSONArray(result);
+
+                        for(int i = 0; i<array.length();i++)
+                        {
+                            Log.d("tag", "PUMASOK NAAA");
+                            JSONObject object = array.getJSONObject(i);
+                            Integer product_id = object.getInt("product_id");
+                            String product_name = object.getString("product_name");
+                            Double product_price = object.getDouble("product_price");
+                            Integer product_stock = object.getInt("product_stock");
+                            String product_code = object.getString("product_code");
+                            String product_picture = object.getString("product_picture");
+
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            listproducts.add(product);
+                        }
+
+                        Log.d("te"," " + listproducts.size());
+                        mAdapter = new ProductAdapter(Recyclerpage.this,listproducts);
+                        recyclerView.setAdapter(mAdapter);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+        else if (data == 4)
+        {
+            String[] field = new String[1];
+            field[0] = "productClass_id"; // Fields in the database
+            String[] data = new String[1];
+            data[0] = String.valueOf(4);
+
+            PutData putData = new PutData(getSpecificDrinks_URL, "POST", field, data);
+            if (putData.startPut()) {
+                if (putData.onComplete()) {
+                    String result = putData.getResult();
+                    Log.e("php",result);
+                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+
+                    try {
+                        JSONArray array = new JSONArray(result);
+
+                        for(int i = 0; i<array.length();i++)
+                        {
+                            Log.d("tag", "PUMASOK NAAA");
+                            JSONObject object = array.getJSONObject(i);
+                            Integer product_id = object.getInt("product_id");
+                            String product_name = object.getString("product_name");
+                            Double product_price = object.getDouble("product_price");
+                            Integer product_stock = object.getInt("product_stock");
+                            String product_code = object.getString("product_code");
+                            String product_picture = object.getString("product_picture");
+
+
+
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            listproducts.add(product);
+                        }
+
+                        Log.d("te"," " + listproducts.size());
+                        mAdapter = new ProductAdapter(Recyclerpage.this,listproducts);
+                        recyclerView.setAdapter(mAdapter);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }
     }
 
     public void init()
