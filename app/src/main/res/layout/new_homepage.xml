@@ -76,22 +76,108 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout1" />
 
-    <LinearLayout
-        android:id="@+id/linearlayout2"
-        android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Popular"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="370dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout1" />
 
 
-    </LinearLayout>
+    <ScrollView
+        android:layout_width="410dp"
+        android:layout_height="426dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="177dp"
+                    android:layout_height="317dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/coke_bt"
+                        android:layout_width="223dp"
+                        android:layout_height="142dp"
+                        android:backgroundTint="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/coke_popular"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <ImageButton
+                        android:id="@+id/royal_bt"
+                        android:layout_width="244dp"
+                        android:layout_height="178dp"
+                        android:backgroundTint="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/royalbig_popular"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/sevenup_bt"
+                    android:layout_width="204dp"
+                    android:layout_height="317dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/sevenup_popular"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/zesto1_bt"
+                    android:layout_width="185dp"
+                    android:layout_height="177dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/pineapple_popular"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+
+                <ImageButton
+                    android:id="@+id/zesto_bt"
+                    android:layout_width="210dp"
+                    android:layout_height="177dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/orange_popular"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
 
@@ -179,18 +265,5 @@
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/alfa_slab_one"
-        android:text="Popular"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout1" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

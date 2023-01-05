@@ -7,14 +7,14 @@
 
 
     <RelativeLayout
-        android:layout_width="657dp"
-        android:layout_height="729dp"
+        android:layout_width="729dp"
+        android:layout_height="890dp"
         android:background="@drawable/landingpage"
+        android:fitsSystemWindows="false"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fitsSystemWindows="false">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/b_lp"
@@ -22,8 +22,8 @@
             android:layout_height="57dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="252dp"
-            android:layout_marginBottom="341dp"
+            android:layout_marginEnd="292dp"
+            android:layout_marginBottom="379dp"
             android:background="@drawable/lp_button"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/lp_button" />

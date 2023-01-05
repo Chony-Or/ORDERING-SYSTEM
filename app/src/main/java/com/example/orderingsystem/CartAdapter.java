@@ -131,8 +131,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                                 if (result.equals("Delete Success")) {
 
                                     Toast.makeText(context, "Delete Success", Toast.LENGTH_SHORT).show();
-//                                    cartpage cart = new cartpage();
-//                                    cart.reload();
                                     notifyDataSetChanged();
                                     Intent intent = new Intent(context,cartpage.class);
                                     context.startActivity(intent);

@@ -138,7 +138,7 @@ public class Recyclerpage extends AppCompatActivity {
             String[] field = new String[1];
             field[0] = "productClass_id"; // Fields in the database
             String[] data = new String[1];
-            data[0] = String.valueOf(data);
+            data[0] = String.valueOf(1);
 
             PutData putData = new PutData(getSpecificDrinks_URL, "POST", field, data);
             if (putData.startPut()) {

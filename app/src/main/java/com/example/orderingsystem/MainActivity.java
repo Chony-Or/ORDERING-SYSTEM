@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         b_guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this ,Homepage.class);
+                Intent intent = new Intent(MainActivity.this ,FillUpPage.class);
                 startActivity(intent);
             }
         });

@@ -91,11 +91,11 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
+        android:id="@+id/lay"
         android:layout_width="411dp"
-        android:layout_height="0dp"
+        android:layout_height="650dp"
         android:layout_margin="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-1dp">
@@ -107,31 +107,40 @@
             android:layout_margin="10dp" />
     </LinearLayout>
 
-    <TableRow
-        android:id="@+id/tableLayout"
-        android:layout_width="413dp"
-        android:layout_height="56dp"
+
+    <TextView
+        android:id="@+id/dptotal_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="Total: "
         app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-3dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay"
+        app:layout_constraintVertical_bias="0.571" />
 
-        <CheckBox
-            android:id="@+id/selectAll_cb"
-            android:layout_width="101dp"
-            android:layout_height="match_parent"
-            android:text="All" />
+    <TextView
+        android:id="@+id/total_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:text="Total: "
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        app:layout_constraintStart_toEndOf="@+id/dptotal_tv"
+        app:layout_constraintTop_toBottomOf="@+id/lay"
+        app:layout_constraintVertical_bias="0.571" />
 
-        <TextView
-            android:id="@+id/total_tv"
-            android:layout_width="193dp"
-            android:layout_height="53dp"
-            android:text="Total: " />
-
-        <Button
-            android:id="@+id/checkout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Checkout" />
-    </TableRow>
+    <Button
+        android:id="@+id/checkout_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Checkout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.906"
+        app:layout_constraintStart_toEndOf="@+id/total_tv"
+        app:layout_constraintTop_toBottomOf="@+id/lay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

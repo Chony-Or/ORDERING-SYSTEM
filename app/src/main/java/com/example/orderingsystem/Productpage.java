@@ -150,25 +150,6 @@ public class Productpage extends AppCompatActivity {
 
     public void passdata()
     {
-//        SQLiteDatabase db = openOrCreateDatabase("Hold_Order",MODE_PRIVATE,null);
-//
-//        Cursor cursor = db.rawQuery("SELECT * FROM ProductOrder_tbl WHERE product_id like '"+product_id+"'", null);
-//
-//        Log.e("cursor tooo", String.valueOf(cursor));
-//        if (cursor.moveToFirst()) {
-//            Log.e("IFFFFFFFFFFF", "PASS DITO");
-//            ContentValues data = new ContentValues();
-//            data.put("product_id",product_id);
-//            data.put("customer_id",customer_id );
-//            data.put("product_name",product_name);
-//            data.put("quantity ",quantity);
-//            data.put("amount ",amount);
-//            data.put("product_picture", product_picture);
-//
-//            db.update("ProductOrder_tbl",data, "product_id = ?", new String[]{String.valueOf(product_id)});
-//        }
-
-
         Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -198,32 +179,13 @@ public class Productpage extends AppCompatActivity {
                         if (result.equals("Add Order Success")) {
 
                             Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(MainActivity.this, Homepage.class);
-//                            startActivity(intent);
-//                            finish();
                         }
 
-                        //End ProgressBar (Set visibility to GONE)
                         Log.i("PutData", result);
                     }
                 }
             }
         });
-
-//        else
-//        {
-//            Log.e("ELSEEEEE", "PASS DITO");
-//            ContentValues data = new ContentValues();
-//            data.put("product_id",product_id);
-//            data.put("customer_id",customer_id );
-//            data.put("product_name",product_name);
-//            data.put("quantity ",quantity);
-//            data.put("amount ",amount);
-//            data.put("product_picture", product_picture);
-//
-//            db.insert("ProductOrder_tbl",null,data);
-//        }
-
 
     }
 }
