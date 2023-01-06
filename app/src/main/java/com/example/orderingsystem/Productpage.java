@@ -24,7 +24,7 @@ import org.json.JSONException;
 public class Productpage extends AppCompatActivity {
 
     private static final String putProduct_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/addHoldOrders.php";
-    TextView productDetails_name,productDetails_price,productDetails_stocks, counter;
+    TextView productDetails_name,productDetails_price,productDetails_stocks,productDetails_details, counter;
     ImageView productDetails_picture;
     Button b_addcart, b_checkout, decrement_bt, increment_bt;
     Integer customer_id, product_id,quantity,stocks;
@@ -44,6 +44,7 @@ public class Productpage extends AppCompatActivity {
         String intent_name = intent.getStringExtra("product_name");
         Double intent_price = intent.getDoubleExtra("product_price",0);
         int intent_stocks =  intent.getIntExtra("product_stock",0);
+        String intent_details = intent.getStringExtra("product_details");
         stocks = intent.getIntExtra("product_stock",0);
         String intent_picture = intent.getStringExtra("product_picture");
         product_id = intent.getIntExtra("product_id", 0);
@@ -54,7 +55,7 @@ public class Productpage extends AppCompatActivity {
             productDetails_name.setText(intent_name);
             productDetails_price.setText(String.valueOf(intent_price));
             productDetails_stocks.setText(String.valueOf(intent_stocks));
-
+            productDetails_details.setText(intent_details);
 
             counter.setText("1");
             Glide.with(Productpage.this).load(Constants.get_image+intent_picture).into(productDetails_picture);
@@ -129,6 +130,7 @@ public class Productpage extends AppCompatActivity {
         productDetails_price = (TextView) findViewById(R.id.productDetails_price);
         productDetails_stocks = (TextView) findViewById(R.id.productDetails_stocks);
         productDetails_picture = (ImageView) findViewById(R.id.productDetails_picture);
+        productDetails_details = (TextView) findViewById(R.id.product_details_tv);
         counter = (TextView) findViewById(R.id.counter);
         increment_bt = (Button) findViewById(R.id.increment_bt);
         decrement_bt = (Button) findViewById(R.id.decrement_bt);

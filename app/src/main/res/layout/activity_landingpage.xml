@@ -7,23 +7,27 @@
 
 
     <RelativeLayout
-        android:layout_width="729dp"
-        android:layout_height="890dp"
+        android:layout_width="939dp"
+        android:layout_height="880dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/landingpage"
         android:fitsSystemWindows="false"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/b_lp"
-            android:layout_width="154dp"
-            android:layout_height="57dp"
+            android:layout_width="177dp"
+            android:layout_height="52dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="292dp"
-            android:layout_marginBottom="379dp"
+            android:layout_marginStart="369dp"
+            android:layout_marginEnd="393dp"
+            android:layout_marginBottom="387dp"
             android:background="@drawable/lp_button"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/lp_button" />

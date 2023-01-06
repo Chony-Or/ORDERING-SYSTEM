@@ -82,6 +82,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 intent.putExtra("product_name",productData.getProduct_name());
                 intent.putExtra("product_price",productData.getProduct_price());
                 intent.putExtra("product_stock",productData.getProduct_stock());
+                intent.putExtra("product_details",productData.getProduct_details());
                 Log.d("STOCKS", String.valueOf(productData.getProduct_stock()));
                 intent.putExtra("product_picture",productData.getProduct_picture());
                 context.startActivity(intent);
