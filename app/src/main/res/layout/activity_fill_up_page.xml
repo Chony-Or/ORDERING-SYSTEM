@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_width="414dp"
-        android:layout_height="818dp"
-        android:background="@drawable/fillupppppppp"
+        android:layout_width="690dp"
+        android:layout_height="804dp"
+        android:background="@drawable/bg_form"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

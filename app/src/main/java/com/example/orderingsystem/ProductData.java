@@ -5,20 +5,30 @@ public class ProductData {
     private String product_name;
     private Double product_price;
     private Integer product_stock;
+    private String product_details;
     private String product_code;
     private String product_picture;
 
 
-    public ProductData(Integer product_id, String product_name, Double product_price, Integer product_stock, String product_code, String product_picture) {
+
+
+    public ProductData(Integer product_id, String product_name, Double product_price, Integer product_stock, String product_details, String product_code, String product_picture) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_price = product_price;
         this.product_stock = product_stock;
+        this.product_details = product_details;
         this.product_code = product_code;
         this.product_picture = product_picture;
     }
 
+    public String getProduct_details() {
+        return product_details;
+    }
 
+    public void setProduct_details(String product_details) {
+        this.product_details = product_details;
+    }
     public Integer getProduct_id() {
         return product_id;
     }

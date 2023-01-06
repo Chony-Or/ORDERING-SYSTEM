@@ -90,16 +90,18 @@
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+
     <LinearLayout
         android:id="@+id/lay"
         android:layout_width="408dp"
-        android:layout_height="612dp"
-        android:layout_margin="10dp"
+        android:layout_height="656dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057"
         tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -108,7 +110,6 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp" />
     </LinearLayout>
-
 
     <TextView
         android:id="@+id/total_tv"

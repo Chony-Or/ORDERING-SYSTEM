@@ -106,12 +106,13 @@ public class Recyclerpage extends AppCompatActivity {
                                 String product_name = object.getString("product_name");
                                 Double product_price = object.getDouble("product_price");
                                 Integer product_stock = object.getInt("product_stock");
+                                String product_details = object.getString("product_details");
                                 String product_code = object.getString("product_code");
                                 String product_picture = object.getString("product_picture");
 
 
 
-                                ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                                ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_details,product_code,product_picture);
                                 listproducts.add(product);
                             }
 
@@ -158,12 +159,13 @@ public class Recyclerpage extends AppCompatActivity {
                             String product_name = object.getString("product_name");
                             Double product_price = object.getDouble("product_price");
                             Integer product_stock = object.getInt("product_stock");
+                            String product_details = object.getString("product_details");
                             String product_code = object.getString("product_code");
                             String product_picture = object.getString("product_picture");
 
 
 
-                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_details,product_code,product_picture);
                             listproducts.add(product);
                         }
 
@@ -202,12 +204,13 @@ public class Recyclerpage extends AppCompatActivity {
                             String product_name = object.getString("product_name");
                             Double product_price = object.getDouble("product_price");
                             Integer product_stock = object.getInt("product_stock");
+                            String product_details = object.getString("product_details");
                             String product_code = object.getString("product_code");
                             String product_picture = object.getString("product_picture");
 
 
 
-                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_details,product_code,product_picture);
                             listproducts.add(product);
                         }
 
@@ -247,10 +250,11 @@ public class Recyclerpage extends AppCompatActivity {
                             String product_name = object.getString("product_name");
                             Double product_price = object.getDouble("product_price");
                             Integer product_stock = object.getInt("product_stock");
+                            String product_details = object.getString("product_details");
                             String product_code = object.getString("product_code");
                             String product_picture = object.getString("product_picture");
 
-                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_details,product_code,product_picture);
                             listproducts.add(product);
                         }
 
@@ -290,12 +294,13 @@ public class Recyclerpage extends AppCompatActivity {
                             String product_name = object.getString("product_name");
                             Double product_price = object.getDouble("product_price");
                             Integer product_stock = object.getInt("product_stock");
+                            String product_details = object.getString("product_details");
                             String product_code = object.getString("product_code");
                             String product_picture = object.getString("product_picture");
 
 
 
-                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_code,product_picture);
+                            ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_details,product_code,product_picture);
                             listproducts.add(product);
                         }
 
