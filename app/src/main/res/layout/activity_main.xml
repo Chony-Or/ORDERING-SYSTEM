@@ -8,9 +8,9 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_width="748dp"
-        android:layout_height="896dp"
-        android:background="@drawable/bg_main"
+        android:layout_width="416dp"
+        android:layout_height="794dp"
+        android:background="@drawable/log"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

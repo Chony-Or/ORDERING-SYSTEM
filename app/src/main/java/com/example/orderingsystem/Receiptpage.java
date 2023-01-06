@@ -1,6 +1,7 @@
 package com.example.orderingsystem;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -51,6 +53,7 @@ public class Receiptpage extends AppCompatActivity {
 
 
         init();
+
 
         recyclerView = findViewById(R.id.receiptRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -114,6 +117,23 @@ public class Receiptpage extends AppCompatActivity {
 
             }
 
+
+    }
+    public void showAlertDialog(View view)
+    {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Reminder!");
+        alert.setMessage("Please wait for a call from the management to confirm your order/s. Thank you!");
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                Intent intent = new Intent(Receiptpage.this, Homepage.class);
+                startActivity(intent);
+            }
+
+        });
+        alert.create().show();
     }
 
     public void init()

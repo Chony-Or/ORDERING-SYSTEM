@@ -29,6 +29,17 @@
             android:drawableLeft="@drawable/logout_icon"
             android:text="LOGOUT"
             android:textColor="#0B0B0B" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/logout_bt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="148dp"
+            android:layout_marginBottom="472dp"
+            android:text="name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     </RelativeLayout>
 
     <Button
@@ -60,18 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.466" />
-
-    <TextView
-        android:id="@+id/profile_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="440dp"
-        android:text="name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/number_bt"
