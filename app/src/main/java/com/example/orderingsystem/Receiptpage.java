@@ -19,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -29,6 +30,9 @@ public class Receiptpage extends AppCompatActivity {
     TextView Rcustomer_address;
     TextView Rcustomer_name;
     TextView Rcustomer_number;
+    TextView totalreceipt_tv;
+    Double holdTotal = 0.00;
+    DecimalFormat formatter = new DecimalFormat("#,###,###.##");
     public RecyclerView recyclerView;
     private ReceiptAdapter mAdapter;
     public ArrayList<ReceiptData> ReceiptList = new ArrayList<>();
@@ -90,6 +94,9 @@ public class Receiptpage extends AppCompatActivity {
                             Integer order_number = object.getInt("order_number");
                             Integer quantity = object.getInt("quantity");
 
+                            holdTotal += Double.valueOf(quantity * amount);
+
+
                             Rinvoice_number.setText(order_number.toString());
                             ReceiptData rData = new ReceiptData(product_id, product_name, order_number, quantity, amount);
                             ReceiptList.add(rData);
@@ -102,10 +109,13 @@ public class Receiptpage extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    totalreceipt_tv.setText("₱ " + formatter.format(holdTotal));
                 }
+
             }
 
     }
+
     public void init()
     {
         b_close = (Button) findViewById(R.id.b_close);
@@ -113,8 +123,12 @@ public class Receiptpage extends AppCompatActivity {
         Rcustomer_name = (TextView) findViewById(R.id.Rcustomer_name);
         Rcustomer_number = (TextView) findViewById(R.id.Rcustomer_number);
         Rinvoice_number = (TextView) findViewById(R.id.Rinvoice_number);
+        totalreceipt_tv= (TextView) findViewById(R.id.totalreceipt_tv);
+
 
     }
+
+
 
 
 }

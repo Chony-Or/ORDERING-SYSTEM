@@ -44,6 +44,7 @@ public class cartpage extends AppCompatActivity {
     FloatingActionButton floatingButton;
     TextView total_tv;
     Button checkout_bt;
+    TextView totalreceipt_tv;
     CheckBox selectAll_cb;
     String product_name;
     DecimalFormat formatter = new DecimalFormat("#,###,###.##");
@@ -138,7 +139,6 @@ public class cartpage extends AppCompatActivity {
                 int random_num =(int)(Math.random()*max-min+1)+min;
 
 
-
                 String[] field = new String[1];
                 field[0] = "customer_id"; // Fields in the database
                 String[] data = new String[1];
@@ -164,6 +164,8 @@ public class cartpage extends AppCompatActivity {
                                 Integer quantity = object.getInt("quantity");
                                 Double amount = object.getDouble("amount");
 
+
+
                                 Handler handler = new Handler();
                                 handler.post(new Runnable() {
                                     @Override
@@ -188,6 +190,8 @@ public class cartpage extends AppCompatActivity {
                                         data[5] = amount.toString();
                                         data[6] = "1";
 
+
+
                                         PutData putData = new PutData(addCustomer_Order, "POST", field, data);
                                         if (putData.startPut()) {
                                             if (putData.onComplete()) {
@@ -205,6 +209,7 @@ public class cartpage extends AppCompatActivity {
 
                                                 //End ProgressBar (Set visibility to GONE)
                                                 Log.i("PutData", result);
+
                                             }
                                         }
                                     }
@@ -214,9 +219,12 @@ public class cartpage extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
                 }
+
             }
+
         });
 
     }
@@ -227,6 +235,8 @@ public class cartpage extends AppCompatActivity {
         home_tv = (TextView) findViewById(R.id.home_tv);
         total_tv = findViewById(R.id.total_tv);
         checkout_bt = findViewById(R.id.checkout_bt);
+        totalreceipt_tv= (TextView) findViewById(R.id.totalreceipt_tv);
+
     }
     public void reload()
     {
