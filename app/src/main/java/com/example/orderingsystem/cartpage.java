@@ -149,7 +149,7 @@ public class cartpage extends AppCompatActivity {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
                         Log.e("php", result);
-                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+ //                       Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
 
                         try {
                             JSONArray array = new JSONArray(result);
@@ -163,8 +163,6 @@ public class cartpage extends AppCompatActivity {
                                 String product_name = object.getString("product_name");
                                 Integer quantity = object.getInt("quantity");
                                 Double amount = object.getDouble("amount");
-
-
 
                                 Handler handler = new Handler();
                                 handler.post(new Runnable() {
@@ -190,8 +188,6 @@ public class cartpage extends AppCompatActivity {
                                         data[5] = amount.toString();
                                         data[6] = "1";
 
-
-
                                         PutData putData = new PutData(addCustomer_Order, "POST", field, data);
                                         if (putData.startPut()) {
                                             if (putData.onComplete()) {
@@ -201,7 +197,7 @@ public class cartpage extends AppCompatActivity {
                                                 if (result.equals("Add Order Success")) {
                                                     Log.e("ADDING ORDER TO PENDING", "PUMASOK SUCCESS");
 
-                                                    Toast.makeText(getApplicationContext(), "ASA DATABASE NA ORDER", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(getApplicationContext(), "ASA DATABASE NA ORDER", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(cartpage.this, Receiptpage.class);
                                                     startActivity(intent);
                                                     finish();

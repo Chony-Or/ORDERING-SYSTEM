@@ -178,7 +178,7 @@ public class Homepage extends AppCompatActivity {
             if (putData.onComplete()) {
                 String result = putData.getResult();
                 Log.e("php",result);
-                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
 
                 try {
                     JSONArray array = new JSONArray(result);
@@ -205,16 +205,12 @@ public class Homepage extends AppCompatActivity {
                         intent.putExtra("product_picture",product_picture);
                         this.startActivity(intent);
 
-//                        ProductData product = new ProductData(product_id,product_name,product_price,product_stock,product_details,product_code,product_picture);
-//                        listproducts.add(product);
-                    }
 
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
-
-
 }

@@ -82,7 +82,7 @@ public class Receiptpage extends AppCompatActivity {
                 if (putData.onComplete()) {
                     String result = putData.getResult();
                     Log.e("php",result);
-                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+  //                  Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
 
                     try {
                         JSONArray array = new JSONArray(result);

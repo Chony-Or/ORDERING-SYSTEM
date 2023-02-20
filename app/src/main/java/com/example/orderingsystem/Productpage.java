@@ -35,9 +35,7 @@ public class Productpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productpage);
 
-        SQLiteDatabase db = openOrCreateDatabase("Hold_Order",MODE_PRIVATE,null);
         init();
-        database();
 
         Intent intent = getIntent();
 
@@ -60,7 +58,6 @@ public class Productpage extends AppCompatActivity {
             counter.setText("1");
             Glide.with(Productpage.this).load(Constants.get_image+intent_picture).into(productDetails_picture);
 
-            //pass data to local sqlite
 
         }
 
@@ -135,19 +132,6 @@ public class Productpage extends AppCompatActivity {
         increment_bt = (Button) findViewById(R.id.increment_bt);
         decrement_bt = (Button) findViewById(R.id.decrement_bt);
 
-    }
-
-    public void database()
-    {
-        SQLiteDatabase db = openOrCreateDatabase("Hold_Order",MODE_PRIVATE,null);
-        db.execSQL(("CREATE TABLE IF NOT EXISTS ProductOrder_tbl(" +
-                "product_id INTEGER," +
-                "customer_id INTEGER," +
-                "product_name TEXT," +
-                "quantity INTEGER," +
-                "amount DOUBLE," +
-                "product_picture TEXT" +
-                ")"));
     }
 
     public void passdata()

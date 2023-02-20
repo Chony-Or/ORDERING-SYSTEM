@@ -74,7 +74,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
          holder.product_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,productData.getProduct_name(),Toast.LENGTH_SHORT).show();
+ //               Toast.makeText(context,productData.getProduct_name(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context,Productpage.class);
 
@@ -96,7 +96,4 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             return productDatas.size();
 
     }
-
-
-
 }

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), c_name, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), c_name, Toast.LENGTH_SHORT).show();
 
                             String[] field = new String[2];
                             field[0] = "customer_name"; // Fields in the database
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             if (putData.onComplete()) {
                 String result = putData.getResult();
                 Log.e("php",result);
-                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
 
                 JSONArray array = new JSONArray(result);
                 for (int i = 0; i < array.length(); i++) {
