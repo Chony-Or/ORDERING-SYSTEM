@@ -33,6 +33,7 @@
         <activity android:name=".cartpage" />
         <activity android:name=".Receiptpage" />
         <activity android:name=".FillUpPage" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
