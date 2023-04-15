@@ -164,7 +164,7 @@ public class Productpage extends AppCompatActivity {
 
                         if (result.equals("Add Order Success")) {
 
-                            Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Add Order Success", Toast.LENGTH_SHORT).show();
                         }
 
                         Log.i("PutData", result);

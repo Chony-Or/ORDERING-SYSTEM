@@ -2,79 +2,58 @@ package com.example.orderingsystem;
 
 public class NotificationData {
 
-    private Integer product_id;
-    private String product_name;
-    private Double product_price;
-    private Integer product_stock;
-    private String product_details;
-    private String product_code;
-    private String product_picture;
+    private Integer notif_id;
+    private Integer customer_id;
+    private String notif_subject;
+    private String notif_context;
+    private String notif_date;
 
-
-
-
-    public NotificationData(Integer product_id, String product_name, Double product_price, Integer product_stock, String product_details, String product_code, String product_picture) {
-        this.product_id = product_id;
-        this.product_name = product_name;
-        this.product_price = product_price;
-        this.product_stock = product_stock;
-        this.product_details = product_details;
-        this.product_code = product_code;
-        this.product_picture = product_picture;
+    public NotificationData(Integer notif_id, Integer customer_id,String notif_subject, String notif_context, String notif_date) {
+        this.notif_id = notif_id;
+        this.customer_id = customer_id;
+        this.notif_subject = notif_subject;
+        this.notif_context = notif_context;
+        this.notif_date = notif_date;
     }
 
-    public String getProduct_details() {
-        return product_details;
+    public Integer getNotif_id() {
+        return notif_id;
     }
 
-    public void setProduct_details(String product_details) {
-        this.product_details = product_details;
-    }
-    public Integer getProduct_id() {
-        return product_id;
+    public void setNotif_id(Integer notif_id) {
+        this.notif_id = notif_id;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public Integer getCustomer_id() {
+        return customer_id;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public void setCustomer_id(Integer customer_id) {
+        this.customer_id = customer_id;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public String getNotif_context() {
+        return notif_context;
     }
 
-    public Double getProduct_price() {
-        return product_price;
+    public void setNotif_context(String notif_message) {
+        this.notif_context = notif_message;
     }
 
-    public void setProduct_price(Double product_price) {
-        this.product_price = product_price;
+    public String getNotif_subject() {
+        return notif_subject;
     }
 
-    public Integer getProduct_stock() {
-        return product_stock;
+    public void setNotif_subject(String notif_subject) {
+        this.notif_subject = notif_subject;
     }
 
-    public void setProduct_stock(Integer product_stock) {
-        this.product_stock = product_stock;
+    public String getNotif_date() {
+        return notif_date;
     }
 
-    public String getProduct_code() {
-        return product_code;
+    public void setNotif_date(String notif_date) {
+        this.notif_date = notif_date;
     }
 
-    public void setProduct_code(String product_code) {
-        this.product_code = product_code;
-    }
-
-    public String getProduct_picture() {
-        return product_picture;
-    }
-
-    public void setProduct_picture(String product_picture) {
-        this.product_picture = product_picture;
-    }
 }

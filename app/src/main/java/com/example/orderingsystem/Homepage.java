@@ -22,10 +22,11 @@ import java.util.Objects;
 
 public class Homepage extends AppCompatActivity {
 
-    ImageButton softdrinks_bt ,juice_bt ,water_bt ,alcohol_bt, coke_bt, sevenup_bt, royal_bt, zesto1_bt, zesto_bt;
+    ImageButton softdrinks_bt ,juice_bt ,water_bt ,alcohol_bt, coke_bt, sevenup_bt, royal_bt, zesto1_bt, zesto_bt, notif_bt;
     TextView profile_tv,home_tv,seeAll_bt;
     FloatingActionButton floatingButton;
     public ArrayList<ProductData> listproducts = new ArrayList<>();
+    private final String getNotification_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getNotification.php";
     private final String BASE_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getProducts.php";
     private final String getDrink_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getDrink.php";
     @Override
@@ -144,6 +145,14 @@ public class Homepage extends AppCompatActivity {
             }
         });
 
+        notif_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Homepage.this, notification_recycler.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void init()
@@ -162,10 +171,51 @@ public class Homepage extends AppCompatActivity {
         royal_bt = (ImageButton) findViewById(R.id.royal_bt);
         zesto1_bt = (ImageButton) findViewById(R.id.zesto1_bt);
         zesto_bt = (ImageButton) findViewById(R.id.zesto_bt);
-
-
+        notif_bt = (ImageButton) findViewById(R.id.notif_bt);
 
     }
+
+
+//    public void getNotification(int id)
+//    {
+//        String[] field = new String[1];
+//        field[0] = "customer_id"; // Fields in the database
+//        String[] data = new String[1];
+//        data[0] = String.valueOf(id);
+//
+//        PutData putData = new PutData(getNotification_URL, "POST", field, data);
+//        if (putData.startPut()) {
+//            if (putData.onComplete()) {
+//                String result = putData.getResult();
+//                Log.e("php",result);
+////                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
+//
+//                try {
+//                    JSONArray array = new JSONArray(result);
+//
+//                    for(int i = 0; i<array.length();i++)
+//                    {
+//                        Log.d("tag", "PUMASOK NAAA");
+//                        JSONObject object = array.getJSONObject(i);
+//                        Integer notif_id = object.getInt("notif_id");
+//                        Integer customer_id = object.getInt("customer_id");
+//                        String notif_subject = object.getString("notif_subject");
+//                        String notif_context = object.getString("notif_context");
+//
+//                        Intent intent = new Intent(this,Productpage.class);
+//                        this.startActivity(intent);
+//
+//
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//    }
+
+
+
     public void getdrink(int id)
     {
         String[] field = new String[1];
