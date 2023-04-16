@@ -30,7 +30,7 @@ public class Landingpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(Landingpage.this, MainActivity.class);
+                intent = new Intent(Landingpage.this, Homepage.class);
                 startActivity(intent);
 
             }

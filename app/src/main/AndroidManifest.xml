@@ -17,6 +17,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SignupPage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FillupPage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".notification_recycler"
             android:exported="false">
             <meta-data
@@ -39,7 +53,6 @@
         <activity android:name=".Productpage" />
         <activity android:name=".cartpage" />
         <activity android:name=".Receiptpage" />
-        <activity android:name=".FillUpPage" />
         <activity android:name=".Notification" />
 
         <meta-data

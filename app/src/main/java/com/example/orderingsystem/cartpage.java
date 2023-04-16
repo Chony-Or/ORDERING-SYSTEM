@@ -118,8 +118,18 @@ public class cartpage extends AppCompatActivity {
         profile_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cartpage.this, Profile.class);
-                startActivity(intent);
+
+                if(UserData.getCustomer_id()==null)
+                {
+                    Toast.makeText(getApplicationContext(),"Please login your Account first",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(cartpage.this ,MainActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(cartpage.this ,Profile.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
