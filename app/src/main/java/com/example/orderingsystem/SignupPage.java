@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import org.json.JSONException;
-
 // for registering as a REGULAR CUSTOMER
 public class SignupPage extends AppCompatActivity {
 
@@ -95,10 +93,10 @@ public class SignupPage extends AppCompatActivity {
 
     public void init()
     {
-        regular_fullname = (EditText) findViewById(R.id.guest_fullname);
-        regular_number = (EditText) findViewById(R.id.guest_number);
-        regular_address = (EditText) findViewById(R.id.guest_address);
-        submit_bt = (Button) findViewById(R.id.submit_bt);
+//        regular_fullname = (EditText) findViewById(R.id.guest_fullname);
+//        regular_number = (EditText) findViewById(R.id.guest_number);
+//        regular_address = (EditText) findViewById(R.id.guest_address);
+//        submit_bt = (Button) findViewById(R.id.next_bt);
 
     }
 }

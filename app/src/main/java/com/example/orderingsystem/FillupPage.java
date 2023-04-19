@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import org.json.JSONException;
-
 // for registering as a IRREGULAR CUSTOMER
 public class FillupPage extends AppCompatActivity {
 
@@ -97,10 +95,10 @@ public class FillupPage extends AppCompatActivity {
 
     public void init()
     {
-        guest_fullname = (EditText) findViewById(R.id.guest_fullname);
-        guest_number = (EditText) findViewById(R.id.guest_number);
-        guest_address = (EditText) findViewById(R.id.guest_address);
-        submit_bt = (Button) findViewById(R.id.submit_bt);
+//        guest_fullname = (EditText) findViewById(R.id.guest_fullname);
+//        guest_number = (EditText) findViewById(R.id.guest_number);
+//        guest_address = (EditText) findViewById(R.id.guest_address);
+//        submit_bt = (Button) findViewById(R.id.next_bt);
 
     }
 }

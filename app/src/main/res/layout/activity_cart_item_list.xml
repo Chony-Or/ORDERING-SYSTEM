@@ -41,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:fontFamily="sans-serif"
                     android:text="Product Name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="#000"
@@ -53,17 +54,21 @@
                     android:layout_weight="1"
                     android:gravity="left"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/p"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:fontFamily="sans-serif"
                         android:text="Price: " />
+
                     <TextView
                         android:id="@+id/productPrice_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:fontFamily="sans-serif"
                         android:text="Product Price" />
 
 
@@ -81,6 +86,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:fontFamily="sans-serif"
                         android:text="Quantity" />
 
                     <TextView
@@ -88,6 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:fontFamily="sans-serif"
                         android:text="Quantity" />
 
                 </LinearLayout>

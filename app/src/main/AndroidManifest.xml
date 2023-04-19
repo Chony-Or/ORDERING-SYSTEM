@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".signup1"
+            android:exported="false" />
+        <activity
             android:name=".SignupPage"
             android:exported="false">
             <meta-data

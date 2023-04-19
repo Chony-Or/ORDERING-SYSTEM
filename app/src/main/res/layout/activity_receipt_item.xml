@@ -28,6 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Product Name"
                     android:textColor="#000"
@@ -46,6 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Quantity" />
             </LinearLayout>
@@ -62,6 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Product Price" />
 

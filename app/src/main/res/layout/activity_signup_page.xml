@@ -5,88 +5,203 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/regular_number"
-        android:layout_width="275dp"
-        android:layout_height="0dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@drawable/ic_numbers"
-        android:drawablePadding="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/regular_address"
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="491dp"
+        android:layout_height="834dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg"
+        android:fitsSystemWindows="false"
+        app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="402dp"
+            android:layout_height="668dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="100dp"
+
+
+            app:srcCompat="@drawable/whitebglong" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/regular_number"
+        android:layout_width="278dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="68dp"
+        android:drawableLeft="@drawable/ic_numbers"
+        android:drawablePadding="20dp"
+        android:hint="Contact No."
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regular_firstname"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/regular_address"
+        android:id="@+id/regular_houseno"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="68dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="32dp"
         android:drawableLeft="@drawable/ic_address"
         android:drawablePadding="20dp"
+        android:hint="House No./Unit.No"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/submit_bt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regular_city" />
 
     <EditText
-        android:id="@+id/regular_fullname"
+        android:id="@+id/regular_street"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="68dp"
+        android:drawableLeft="@drawable/ic_address"
+        android:drawablePadding="20dp"
+        android:hint="Street"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regular_houseno" />
+
+    <EditText
+        android:id="@+id/regular_city"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="68dp"
+        android:drawableLeft="@drawable/ic_address"
+        android:drawablePadding="20dp"
+        android:text="TAGUIG CITY"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regular_number" />
+
+    <EditText
+        android:id="@+id/regular_lastname"
         android:layout_width="275dp"
         android:layout_height="0dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="68dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="8dp"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:textColor="@color/black"
+        android:hint="Last name"
+        android:textColor="#83918484"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/regular_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/regular_firstname"
+        android:layout_width="279dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="68dp"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="First name"
+        android:textColor="#83918484"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regular_lastname" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="165dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sign Up "
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/regular_barangay"
+        android:layout_width="277dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regular_street" />
 
     <Button
-        android:id="@+id/submit_bt"
-        android:layout_width="244dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/next_bt"
+        android:layout_width="285dp"
+        android:layout_height="46dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="83dp"
         android:layout_marginEnd="84dp"
-        android:text="CONTINUE"
+        android:text="NEXT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="393dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="541dp" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="72dp"
-        android:text="Sign Up Form"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/regular_fullname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Tell us about yourself."
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="111dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Where do you live?"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="308dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
