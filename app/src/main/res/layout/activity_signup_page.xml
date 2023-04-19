@@ -26,8 +26,92 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="100dp"
 
-
             app:srcCompat="@drawable/whitebglong" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="402dp"
+            android:layout_height="668dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="100dp"
+            app:srcCompat="@drawable/whitebglong" />
+
+        <Button
+            android:id="@+id/next_bt"
+            android:layout_width="285dp"
+            android:layout_height="46dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginBottom="101dp"
+            android:text="NEXT"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/regular_Username"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="69dp"
+            android:layout_marginBottom="267dp"
+            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:ems="10"
+            android:hint=" Username"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/regular_Password"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regular_Username"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="69dp"
+            android:layout_marginTop="-271dp"
+            android:layout_marginBottom="218dp"
+            android:drawableLeft="@drawable/passicon"
+            android:ems="10"
+            android:hint=" Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/regular_Confirmpass"
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regular_Password"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="69dp"
+            android:layout_marginTop="-218dp"
+            android:layout_marginBottom="167dp"
+            android:drawableLeft="@drawable/confirmpassicon"
+            android:ems="10"
+            android:hint=" Confirm Password"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="115dp"
+            android:layout_marginEnd="165dp"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="50dp"
+            android:text="Tell us about your self." />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_marginEnd="165dp"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="50dp"
+            android:text="Set your credentials." />
 
     </RelativeLayout>
 
@@ -96,7 +180,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="68dp"
         android:drawableLeft="@drawable/ic_address"
         android:drawablePadding="20dp"
@@ -171,37 +255,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regular_street" />
-
-    <Button
-        android:id="@+id/next_bt"
-        android:layout_width="285dp"
-        android:layout_height="46dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="83dp"
-        android:layout_marginEnd="84dp"
-        android:text="NEXT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="541dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tell us about yourself."
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="111dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Where do you live?"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="308dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
