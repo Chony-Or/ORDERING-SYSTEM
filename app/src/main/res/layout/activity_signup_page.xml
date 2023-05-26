@@ -38,7 +38,7 @@
             app:srcCompat="@drawable/whitebglong" />
 
         <Button
-            android:id="@+id/next_bt"
+            android:id="@+id/signup_bt"
             android:layout_width="285dp"
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
@@ -46,12 +46,12 @@
             android:layout_marginStart="70dp"
             android:layout_marginEnd="150dp"
             android:layout_marginBottom="101dp"
-            android:text="NEXT"
+            android:text="SIGN UP"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:ignore="MissingConstraints" />
 
         <EditText
-            android:id="@+id/regular_Username"
+            android:id="@+id/cust_username"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -64,10 +64,10 @@
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/regular_Password"
+            android:id="@+id/cust_password"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/regular_Username"
+            android:layout_below="@+id/cust_username"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="69dp"
@@ -79,10 +79,10 @@
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/regular_Confirmpass"
+            android:id="@+id/cust_confirmpass"
             android:layout_width="277dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/regular_Password"
+            android:layout_below="@+id/cust_password"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="69dp"
@@ -107,16 +107,16 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="500dp"
             android:layout_marginEnd="165dp"
             android:fontFamily="sans-serif"
-            android:layout_marginStart="50dp"
             android:text="Set your credentials." />
 
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/regular_number"
+        android:id="@+id/cust_number"
         android:layout_width="278dp"
         android:layout_height="51dp"
         android:layout_alignParentEnd="true"
@@ -132,11 +132,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular_firstname"
+        app:layout_constraintTop_toBottomOf="@+id/cust_firstname"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/regular_houseno"
+        android:id="@+id/cust_houseno"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -152,10 +152,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular_city" />
+        app:layout_constraintTop_toBottomOf="@+id/cust_city" />
 
     <EditText
-        android:id="@+id/regular_street"
+        android:id="@+id/cust_street"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -171,10 +171,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular_houseno" />
+        app:layout_constraintTop_toBottomOf="@+id/cust_houseno" />
 
     <EditText
-        android:id="@+id/regular_city"
+        android:id="@+id/cust_city"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -190,10 +190,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular_number" />
+        app:layout_constraintTop_toBottomOf="@+id/cust_number" />
 
     <EditText
-        android:id="@+id/regular_lastname"
+        android:id="@+id/cust_lastname"
         android:layout_width="275dp"
         android:layout_height="0dp"
         android:layout_alignParentEnd="true"
@@ -212,7 +212,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/regular_firstname"
+        android:id="@+id/cust_firstname"
         android:layout_width="279dp"
         android:layout_height="51dp"
         android:layout_alignParentEnd="true"
@@ -227,7 +227,7 @@
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular_lastname" />
+        app:layout_constraintTop_toBottomOf="@+id/cust_lastname" />
 
     <TextView
         android:id="@+id/textView"
@@ -243,18 +243,6 @@
         app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/regular_barangay"
-        android:layout_width="277dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regular_street" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

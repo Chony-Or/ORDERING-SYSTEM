@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FDFDFD"
         android:fontFamily="sans-serif-medium"
-        android:text="Order as Guest"
+        android:text="Sign Up"
         android:textColor="#090909"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

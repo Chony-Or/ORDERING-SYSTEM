@@ -41,7 +41,7 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(UserData.getCustomer_id()==null)
+                if(UserData.getCust_id()==null)
                 {
                     Toast.makeText(getApplicationContext(),"Please login your Account first",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Homepage.this ,MainActivity.class);

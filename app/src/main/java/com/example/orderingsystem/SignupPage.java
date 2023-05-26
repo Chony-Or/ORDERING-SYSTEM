@@ -13,13 +13,20 @@ import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 // for registering as a REGULAR CUSTOMER
 public class SignupPage extends AppCompatActivity {
 
 
-    EditText regular_fullname, regular_number, regular_address;
-    Button submit_bt;
-    private static final String putguest_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/signup.php";
+    EditText cust_firstname, cust_lastname, cust_number, cust_houseno, cust_street, cust_city, cust_username, cust_password, cust_confirm;
+    Button signup_bt;
+    public ArrayList<UserData> mUserData = new ArrayList<>();
+    private static final String putguest_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/fillup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,57 +35,78 @@ public class SignupPage extends AppCompatActivity {
 
         init();
 
-        submit_bt.setOnClickListener(new View.OnClickListener() {
+        signup_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String fullname = String.valueOf(regular_fullname.getText());
-                String address = String.valueOf(regular_address.getText());
-                String Number = String.valueOf(regular_number.getText());
+                String firstname = String.valueOf(cust_firstname.getText());
+                String lastname = String.valueOf(cust_lastname.getText());
+                String houseno = String.valueOf(cust_houseno.getText());
+                String street = String.valueOf(cust_street.getText());
+                String city = String.valueOf(cust_city.getText());
+                String username = String.valueOf(cust_username.getText());
+                String password = String.valueOf(cust_password.getText());
+                String confirmpass = String.valueOf(cust_confirm);
+                String number = String.valueOf(cust_number.getText());
 
-                if (!fullname.equals("") && !address.equals("")) {
+                if (!firstname.equals("") && !lastname.equals("")&& !houseno.equals("")&& !street.equals("")&& !city.equals("")&& !username.equals("")&& !password.equals("")&& !confirmpass.equals("")&& !number.equals(""))
+                {
 
                     int len = 0;
-                    len = Number.length();
+                    len = number.length();
                     if(len == 11)
                     {
+                        String[] field = new String[8];
+                        field[0] = "customer_firstname"; // Fields in the database
+                        field[1] = "customer_lastname";
+                        field[2] = "customer_contactNo";
+                        field[3] = "customer_houseno";
+                        field[4] = "customer_street";
+                        field[5] = "customer_city";
+                        field[6] = "customer_username";
+                        field[7] = "customer_password";
 
-                        Handler handler = new Handler();
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                String[] field = new String[3];
-                                field[0] = "customer_name"; // Fields in the database
-                                field[1] = "customer_address";
-                                field[2] = "customer_contactNo";
+                        String[] data = new String[8];
+                        data[0] = firstname; // Fields in the database
+                        data[1] = lastname;
+                        data[2] = number;
+                        data[3] = houseno;
+                        data[4] = street;
+                        data[5] = city;
+                        data[6] = username;
+                        data[7] = password;
 
-                                String[] data = new String[3];
-                                data[0] = fullname;
-                                data[1] = address;
-                                data[2] = Number;
+                        PutData putData = new PutData(putguest_Url, "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult();
+                                Log.e("php",result);
+                                //                   Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
 
-                                PutData putData = new PutData(putguest_Url, "POST", field, data);
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        String result = putData.getResult();
-                                        Log.e("CHECKING", "PUMASOK DITO");
+                                try {
+                                    JSONArray array = new JSONArray(result);
 
-                                        if (!result.equals("")) {
+                                    for(int i = 0; i<array.length();i++)
+                                    {
+                                        Log.d("tag", "PUMASOK NAAA");
+                                        JSONObject object = array.getJSONObject(i);
+                                        Integer cust_id = object.getInt("customer_id");
+                                        Integer custClass_id = object.getInt("customerClass_id");
 
-                                            Log.e("CHECKING IDDD", result);
-                                            UserData userData = new UserData(Integer.valueOf(result), fullname, address, Number, 2);
 
+                                        UserData userData = new UserData(cust_id, custClass_id, number, firstname, lastname, houseno, street, city);
+                                        mUserData.add(userData);
 
-                                            Toast.makeText(getApplicationContext(), "Submission Success", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(SignupPage.this, Homepage.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                        //End ProgressBar (Set visibility to GONE)
-                                        Log.i("PutData", result);
+                                        Toast.makeText(getApplicationContext(), "Submission Success", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(SignupPage.this, Homepage.class);
+                                        startActivity(intent);
                                     }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
                             }
-                        });
+                        }
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Please check your number", Toast.LENGTH_SHORT).show();
                     }
@@ -93,10 +121,16 @@ public class SignupPage extends AppCompatActivity {
 
     public void init()
     {
-//        regular_fullname = (EditText) findViewById(R.id.guest_fullname);
-//        regular_number = (EditText) findViewById(R.id.guest_number);
-//        regular_address = (EditText) findViewById(R.id.guest_address);
-//        submit_bt = (Button) findViewById(R.id.next_bt);
+        cust_firstname = (EditText) findViewById(R.id.cust_firstname);
+        cust_lastname = (EditText) findViewById(R.id.cust_lastname);
+        cust_number = (EditText) findViewById(R.id.cust_number);
+        cust_houseno = (EditText) findViewById(R.id.cust_houseno);
+        cust_street = (EditText) findViewById(R.id.cust_street);
+        cust_city = (EditText) findViewById(R.id.cust_city);
+        cust_username = (EditText) findViewById(R.id.cust_username);
+        cust_password = (EditText) findViewById(R.id.cust_password);
+        cust_confirm = (EditText) findViewById(R.id.cust_confirmpass);
+        signup_bt = (Button) findViewById(R.id.signup_bt);
 
     }
 }

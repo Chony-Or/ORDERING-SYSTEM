@@ -72,7 +72,7 @@ public class cartpage extends AppCompatActivity {
         String[] field = new String[1];
         field[0] = "customer_id"; // Fields in the database
         String[] data = new String[1];
-        data[0] = String.valueOf(UserData.getCustomer_id());
+        data[0] = String.valueOf(UserData.getCust_id());
 
         PutData putData = new PutData(getCustomer_Order, "POST", field, data);
         if (putData.startPut()) {
@@ -119,7 +119,7 @@ public class cartpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(UserData.getCustomer_id()==null)
+                if(UserData.getCust_id()==null)
                 {
                     Toast.makeText(getApplicationContext(),"Please login your Account first",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(cartpage.this ,MainActivity.class);
@@ -152,7 +152,7 @@ public class cartpage extends AppCompatActivity {
                 String[] field = new String[1];
                 field[0] = "customer_id"; // Fields in the database
                 String[] data = new String[1];
-                data[0] = String.valueOf(UserData.getCustomer_id());
+                data[0] = String.valueOf(UserData.getCust_id());
 
                 PutData putData = new PutData(getCustomer_Order, "POST", field, data);
                 if (putData.startPut()) {

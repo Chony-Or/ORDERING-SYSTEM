@@ -66,7 +66,7 @@ public class Productpage extends AppCompatActivity {
             public void onClick(View view) {
 
                 product_id = intent.getIntExtra("product_id", 0);
-                customer_id = UserData.getCustomer_id();
+                customer_id = UserData.getCust_id();
                 product_name = String.valueOf(intent_name);
                 amount = Double.valueOf(intent_price);
                 quantity = Integer.valueOf(String.valueOf(counter.getText()));

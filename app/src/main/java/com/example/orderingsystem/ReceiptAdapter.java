@@ -36,6 +36,7 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.MyViewHo
         private TextView productName_tv;
         private TextView quantity_tv;
         private TextView productPrice_tv;
+        private TextView productsubtotal_tv;
 
         public MyViewHolder(@NonNull View view) {
             super(view);
@@ -43,6 +44,7 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.MyViewHo
             productName_tv = view.findViewById(R.id.productName_tv);
             quantity_tv= view.findViewById(R.id.quantity_tv);
             productPrice_tv = view.findViewById(R.id.productPrice_tv);
+            productsubtotal_tv = view.findViewById(R.id.productsubtotal_tv);
 
         }
     }
@@ -60,10 +62,14 @@ public class ReceiptAdapter extends RecyclerView.Adapter<ReceiptAdapter.MyViewHo
 
         ReceiptData receiptData = receiptDatas.get(position);
 
+        double price = receiptData.getAmount();
+        double quantity = receiptData.getQuantity();
+        double subtotal = price * quantity;
+
         holder.productName_tv.setText(receiptData.getProduct_name());
         holder.quantity_tv.setText(receiptData.getQuantity().toString());
         holder.productPrice_tv.setText(receiptData.getAmount().toString());
-
+        holder.productsubtotal_tv.setText(String.valueOf(subtotal));
 
         Intent intent = new Intent(context,Receiptpage.class);
         intent.putExtra("ordernumber",receiptData.getOrder_number());

@@ -25,9 +25,9 @@ public class Profile extends AppCompatActivity {
         init();
 
 
-        profile_name.setText(UserData.getCustomer_name());
-        profile_address.setText(UserData.getCustomer_address());
-        profile_number.setText(UserData.getCustomer_contactNo());
+        profile_name.setText(UserData.getCust_name());
+        profile_address.setText(UserData.getCust_address());
+        profile_number.setText(UserData.getCust_number());
 
 
 

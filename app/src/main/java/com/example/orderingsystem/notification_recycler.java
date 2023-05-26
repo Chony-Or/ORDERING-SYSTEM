@@ -76,8 +76,8 @@ public class notification_recycler extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Log.e("Customer ID: ", String.valueOf(UserData.getCustomer_id()));
-        getNotification(UserData.getCustomer_id());
+        Log.e("Customer ID: ", String.valueOf(UserData.getCust_id()));
+        getNotification(UserData.getCust_id());
 
     }
 

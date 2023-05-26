@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         b_guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this ,FillupPage.class);
+                Intent intent = new Intent(MainActivity.this ,SignupPage.class);
                 startActivity(intent);
             }
         });
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     public void getUserdata() throws JSONException {
 //
         String[] field = new String[1];
-        field[0] = "customer_name"; // Fields in the database
+        field[0] = "customer_firstname"; // Fields in the database
         String[] data = new String[1];
         data[0] = c_name;
 
@@ -132,12 +132,15 @@ public class MainActivity extends AppCompatActivity {
 
                     JSONObject object = array.getJSONObject(i);
                     Integer customer_id = object.getInt("customer_id");
-                    String customer_name = object.getString("customer_name");
-                    String customer_address = object.getString("customer_address");
+                    String customer_firstname = object.getString("customer_firstname");
+                    String customer_lastname = object.getString("customer_lastname");
                     String customer_contactNo = object.getString("customer_contactNo");
+                    String customer_houseno= object.getString("customer_houseno");
+                    String customer_street = object.getString("customer_street");
+                    String customer_city = object.getString("customer_city");
                     Integer customerClass_id = object.getInt("customerClass_id");
 
-                    UserData userData = new UserData(customer_id, customer_name, customer_address, customer_contactNo, customerClass_id);
+                    UserData userData = new UserData(customer_id, customerClass_id, customer_contactNo, customer_firstname, customer_lastname, customer_houseno, customer_street, customer_city);
                     mUserData.add(userData);
                 }
             }

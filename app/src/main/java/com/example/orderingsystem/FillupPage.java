@@ -67,7 +67,7 @@ public class FillupPage extends AppCompatActivity {
                                         if (!result.equals("")) {
 
                                             Log.e("CHECKING IDDD", result);
-                                            UserData userData = new UserData(Integer.valueOf(result), fullname, address, Number, 2);
+                                           // UserData userData = new UserData(Integer.valueOf(result), fullname, address, Number, 2);
 
 
                                             Toast.makeText(getApplicationContext(), "Submission Success", Toast.LENGTH_SHORT).show();

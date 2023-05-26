@@ -63,12 +63,12 @@ public class Receiptpage extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
 
-        Rcustomer_name.setText(UserData.getCustomer_name());
-        Rcustomer_address.setText(UserData.getCustomer_address());
-        Rcustomer_number.setText(UserData.getCustomer_contactNo());
+        Rcustomer_name.setText(UserData.getCust_name());
+        Rcustomer_address.setText(UserData.getCust_address());
+        Rcustomer_number.setText(UserData.getCust_number());
 
 
-        Integer customer_id = UserData.getCustomer_id();
+        Integer customer_id = UserData.getCust_id();
 
 
             String[] field = new String[1];
