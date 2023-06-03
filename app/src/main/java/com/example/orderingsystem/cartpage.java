@@ -153,6 +153,7 @@ public class cartpage extends AppCompatActivity {
                 field[0] = "customer_id"; // Fields in the database
                 String[] data = new String[1];
                 data[0] = String.valueOf(UserData.getCust_id());
+                Log.d("CUSTOMER ID", UserData.getCust_id().toString());
 
                 PutData putData = new PutData(getCustomer_Order, "POST", field, data);
                 if (putData.startPut()) {

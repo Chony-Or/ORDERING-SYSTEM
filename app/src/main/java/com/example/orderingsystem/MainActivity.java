@@ -80,10 +80,14 @@ public class MainActivity extends AppCompatActivity {
                                     if (result.equals("Login Success")) {
                                         Log.e("CHECKING", "PUMASOK SUCCESS");
                                         try {
+                                            Log.e("Pumasok sa TRY", "pumasok sya TRY");
                                             getUserdata();
                                         } catch (JSONException e) {
+                                            Log.e("Pumasok sa CATCH", "pumasok sya CATCH");
                                             e.printStackTrace();
                                         }
+                                        //String id = UserData.getCust_id().toString();
+                                        //Log.d("CUSTOMER ID", id );
                                         Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(MainActivity.this, Homepage.class);
                                         startActivity(intent);
@@ -115,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     public void getUserdata() throws JSONException {
 //
         String[] field = new String[1];
-        field[0] = "customer_firstname"; // Fields in the database
+        field[0] = "customer_username"; // Fields in the database
         String[] data = new String[1];
         data[0] = c_name;
 
@@ -132,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
                     JSONObject object = array.getJSONObject(i);
                     Integer customer_id = object.getInt("customer_id");
+                    Toast.makeText(getApplicationContext(),customer_id.toString(),Toast.LENGTH_LONG).show();
                     String customer_firstname = object.getString("customer_firstname");
                     String customer_lastname = object.getString("customer_lastname");
                     String customer_contactNo = object.getString("customer_contactNo");
@@ -142,8 +147,11 @@ public class MainActivity extends AppCompatActivity {
 
                     UserData userData = new UserData(customer_id, customerClass_id, customer_contactNo, customer_firstname, customer_lastname, customer_houseno, customer_street, customer_city);
                     mUserData.add(userData);
+
+
                 }
             }
         }
+
     }
 }

@@ -39,6 +39,7 @@ public class Receiptpage extends AppCompatActivity {
     private ReceiptAdapter mAdapter;
     public ArrayList<ReceiptData> ReceiptList = new ArrayList<>();
     private final String getReceiptData_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/getReceiptDetails.php";
+    private final String updateReceiptData_URL ="http:/"+Constants.IP_ADDRESS+"/test_conn/is_activepending.php";
     private Bundle savedInstanceState;
 
     @SuppressLint("MissingInflatedId")
@@ -116,8 +117,6 @@ public class Receiptpage extends AppCompatActivity {
                 }
 
             }
-
-
     }
     public void showAlertDialog(View view)
     {
@@ -128,12 +127,27 @@ public class Receiptpage extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                Intent intent = new Intent(Receiptpage.this, Homepage.class);
-                startActivity(intent);
+
+                Integer customer_id = UserData.getCust_id();
+
+                String[] field = new String[1];
+                field[0] = "customer_id"; // Fields in the database
+                String[] data = new String[1];
+                data[0] = String.valueOf(customer_id);
+                Log.e("customer id",String.valueOf(customer_id));
+
+                PutData putData = new PutData(updateReceiptData_URL, "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        Intent intent = new Intent(Receiptpage.this, Homepage.class);
+                        startActivity(intent);
+                    }
+                }
             }
 
         });
         alert.create().show();
+
     }
 
     public void init()
