@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class Profile extends AppCompatActivity {
 
-    TextView profile_name, profile_address,profile_number;
+    TextView profile_name, profile_address,profile_number, profile_id;
     Button logout_bt, history_bt;
     @Override
 
@@ -28,12 +28,14 @@ public class Profile extends AppCompatActivity {
         profile_name.setText(UserData.getCust_name());
         profile_address.setText(UserData.getCust_address());
         profile_number.setText(UserData.getCust_number());
+        profile_id.setText(UserData.getCust_id().toString());
 
 
 
         history_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), UserData.getCust_id().toString(),Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(),"UNDER MAINTENACE",Toast.LENGTH_SHORT).show();
             }
         });
@@ -55,6 +57,7 @@ public class Profile extends AppCompatActivity {
         profile_name = (TextView) findViewById(R.id.profile_name);
         profile_address = (TextView) findViewById(R.id.profile_address);
         profile_number = (TextView) findViewById(R.id.profile_number);
+        profile_id = (TextView) findViewById(R.id.profile_id);
         logout_bt = (Button) findViewById(R.id.logout_bt);
         history_bt = (Button) findViewById(R.id.history_bt);
 

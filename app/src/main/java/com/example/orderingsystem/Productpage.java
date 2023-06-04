@@ -92,12 +92,17 @@ public class Productpage extends AppCompatActivity {
                     Log.e("cart product_picture", String.valueOf(product_picture));
 
                     passdata();
-
-                    Intent intent = new Intent(Productpage.this,cartpage.class);
-                    startActivity(intent);
                 }
 
 
+            }
+        });
+
+        b_checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Productpage.this,cartpage.class);
+                startActivity(intent);
             }
         });
         increment_bt.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +110,7 @@ public class Productpage extends AppCompatActivity {
             public void onClick(View view) {
                 int hold = Integer.valueOf(String.valueOf(counter.getText()));
 
-                if(hold<=stocks)
+                if(hold<stocks)
                 {
                     hold++;
                     counter.setText(String.valueOf(hold));
@@ -177,7 +182,7 @@ public class Productpage extends AppCompatActivity {
 
                         if (result.equals("Add Order Success")) {
 
-                            Toast.makeText(getApplicationContext(), "Add Order Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
                         }
 
                         Log.i("PutData", result);
