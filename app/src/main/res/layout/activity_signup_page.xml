@@ -3,39 +3,154 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f5f3f3">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="491dp"
-        android:layout_height="834dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/bg"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sign Up "
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#33088D"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="362dp"
+        android:layout_height="669dp"
+        android:layout_margin="5dp"
+        android:background="#ffffff"
         android:fitsSystemWindows="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="402dp"
-            android:layout_height="668dp"
-            android:layout_marginStart="20dp"
+        <EditText
+            android:id="@+id/cust_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_numbers"
+            android:drawablePadding="20dp"
+            android:hint="Contact No."
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+
+            app:layout_constraintTop_toBottomOf="@+id/cust_firstname"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/cust_houseno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_address"
+            android:drawablePadding="20dp"
+            android:hint="House No./Unit.No"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.393"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_city" />
+
+        <EditText
+            android:id="@+id/cust_street"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_address"
+            android:drawablePadding="20dp"
+            android:hint="Street"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_houseno" />
+
+        <EditText
+            android:id="@+id/cust_brgy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_address"
+            android:drawablePadding="20dp"
+            android:hint="Barangay"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_street" />
+
+        <EditText
+            android:id="@+id/cust_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_address"
+            android:drawablePadding="20dp"
+            android:text="TAGUIG CITY"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.363"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_number" />
+
+        <EditText
+            android:id="@+id/cust_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawablePadding="20dp"
+            android:hint="Last name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#83918484"
+            android:textColorHint="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp" />
 
-            app:srcCompat="@drawable/whitebglong" />
+        <EditText
+            android:id="@+id/cust_firstname"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawablePadding="20dp"
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="402dp"
-            android:layout_height="668dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="100dp"
-            app:srcCompat="@drawable/whitebglong" />
+            android:hint="First name"
+            android:textColor="#83918484"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.282"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_lastname" />
 
         <Button
             android:id="@+id/signup_bt"
@@ -43,206 +158,87 @@
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginEnd="150dp"
-            android:layout_marginBottom="101dp"
+            android:layout_marginBottom="28dp"
             android:text="SIGN UP"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_confirmpass"
             tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/cust_username"
-            android:layout_width="275dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="69dp"
-            android:layout_marginBottom="267dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             android:drawableLeft="@drawable/ic_baseline_person_outline_24"
             android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:hint=" Username"
-            android:inputType="text" />
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:layout_editor_absoluteX="16dp" />
 
         <EditText
             android:id="@+id/cust_password"
-            android:layout_width="275dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cust_username"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="69dp"
-            android:layout_marginTop="-271dp"
-            android:layout_marginBottom="218dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:drawableLeft="@drawable/passicon"
-            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:hint=" Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@+id/cust_username" />
 
         <EditText
             android:id="@+id/cust_confirmpass"
-            android:layout_width="277dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cust_password"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="69dp"
-            android:layout_marginTop="-218dp"
-            android:layout_marginBottom="167dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:drawableLeft="@drawable/confirmpassicon"
-            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:hint=" Confirm Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@+id/cust_password" />
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="115dp"
-            android:layout_marginEnd="165dp"
+            android:layout_margin="20dp"
             android:fontFamily="sans-serif"
-            android:layout_marginStart="50dp"
-            android:text="Tell us about your self." />
+            android:text="Tell us about your self."
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="500dp"
-            android:layout_marginEnd="165dp"
+            android:layout_margin="24dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif"
-            android:text="Set your credentials." />
+            android:text="Set your credentials."
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cust_brgy" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/cust_number"
-        android:layout_width="278dp"
-        android:layout_height="51dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="68dp"
-        android:drawableLeft="@drawable/ic_numbers"
-        android:drawablePadding="20dp"
-        android:hint="Contact No."
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cust_firstname"
-        tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/cust_houseno"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="68dp"
-        android:drawableLeft="@drawable/ic_address"
-        android:drawablePadding="20dp"
-        android:hint="House No./Unit.No"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cust_city" />
-
-    <EditText
-        android:id="@+id/cust_street"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="68dp"
-        android:drawableLeft="@drawable/ic_address"
-        android:drawablePadding="20dp"
-        android:hint="Street"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cust_houseno" />
-
-    <EditText
-        android:id="@+id/cust_city"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="68dp"
-        android:drawableLeft="@drawable/ic_address"
-        android:drawablePadding="20dp"
-        android:text="TAGUIG CITY"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cust_number" />
-
-    <EditText
-        android:id="@+id/cust_lastname"
-        android:layout_width="275dp"
-        android:layout_height="0dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="68dp"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
-        android:drawablePadding="20dp"
-        android:hint="Last name"
-        android:textColor="#83918484"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/cust_firstname"
-        android:layout_width="279dp"
-        android:layout_height="51dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="68dp"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
-        android:drawablePadding="20dp"
-        android:hint="First name"
-        android:textColor="#83918484"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cust_lastname" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="165dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Sign Up "
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#3F51B5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

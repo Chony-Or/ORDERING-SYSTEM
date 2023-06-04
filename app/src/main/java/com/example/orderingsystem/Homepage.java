@@ -67,8 +67,20 @@ public class Homepage extends AppCompatActivity {
         floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Homepage.this, cartpage.class);
-                startActivity(intent);
+
+
+                if(UserData.getCust_id()==null)
+                {
+                    Toast.makeText(getApplicationContext(),"Please login your Account first",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Homepage.this ,MainActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(Homepage.this, cartpage.class);
+                    startActivity(intent);
+                }
+
+
             }
         });
 
@@ -157,9 +169,20 @@ public class Homepage extends AppCompatActivity {
 
         notif_bt.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
-                Intent intent = new Intent(Homepage.this, notification_recycler.class);
-                startActivity(intent);
+
+                if(UserData.getCust_id()==null)
+                {
+                    Toast.makeText(getApplicationContext(),"Please login your Account first",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Homepage.this ,MainActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(Homepage.this, notification_recycler.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -184,46 +207,6 @@ public class Homepage extends AppCompatActivity {
         notif_bt = (ImageButton) findViewById(R.id.notif_bt);
 
     }
-
-
-//    public void getNotification(int id)
-//    {
-//        String[] field = new String[1];
-//        field[0] = "customer_id"; // Fields in the database
-//        String[] data = new String[1];
-//        data[0] = String.valueOf(id);
-//
-//        PutData putData = new PutData(getNotification_URL, "POST", field, data);
-//        if (putData.startPut()) {
-//            if (putData.onComplete()) {
-//                String result = putData.getResult();
-//                Log.e("php",result);
-////                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
-//
-//                try {
-//                    JSONArray array = new JSONArray(result);
-//
-//                    for(int i = 0; i<array.length();i++)
-//                    {
-//                        Log.d("tag", "PUMASOK NAAA");
-//                        JSONObject object = array.getJSONObject(i);
-//                        Integer notif_id = object.getInt("notif_id");
-//                        Integer customer_id = object.getInt("customer_id");
-//                        String notif_subject = object.getString("notif_subject");
-//                        String notif_context = object.getString("notif_context");
-//
-//                        Intent intent = new Intent(this,Productpage.class);
-//                        this.startActivity(intent);
-//
-//
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//    }
-
 
 
     public void getdrink(int id)

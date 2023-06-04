@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
+import java.util.Objects;
+
 // for registering as a IRREGULAR CUSTOMER
 public class FillupPage extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class FillupPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the upper part
         setContentView(R.layout.activity_fillup_page);
 
         init();

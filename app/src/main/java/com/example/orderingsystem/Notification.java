@@ -21,6 +21,8 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONException;
 
+import java.util.Objects;
+
 public class Notification extends AppCompatActivity {
 
     private static final String putProduct_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/addHoldOrders.php";
@@ -30,6 +32,7 @@ public class Notification extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the upper part
         setContentView(R.layout.activity_notification);
 
         init();

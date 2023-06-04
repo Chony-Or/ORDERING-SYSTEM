@@ -27,6 +27,7 @@ import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class cartpage extends AppCompatActivity {
 
@@ -58,6 +59,7 @@ public class cartpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the upper part
         setContentView(R.layout.activity_cartpage);
 
         SQLiteDatabase db = openOrCreateDatabase("Hold_Order", MODE_PRIVATE, null);

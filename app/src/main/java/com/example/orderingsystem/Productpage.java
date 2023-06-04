@@ -21,6 +21,8 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONException;
 
+import java.util.Objects;
+
 public class Productpage extends AppCompatActivity {
 
     private static final String putProduct_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/addHoldOrders.php";
@@ -33,6 +35,7 @@ public class Productpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the upper part
         setContentView(R.layout.activity_productpage);
 
         init();
@@ -65,25 +68,35 @@ public class Productpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                product_id = intent.getIntExtra("product_id", 0);
-                customer_id = UserData.getCust_id();
-                product_name = String.valueOf(intent_name);
-                amount = Double.valueOf(intent_price);
-                quantity = Integer.valueOf(String.valueOf(counter.getText()));
-                stocks = intent.getIntExtra("product_stock",0);
-                product_picture = String.valueOf(intent_picture);
 
-                Log.e("cart id SA PRODUCT PAGE", String.valueOf(product_id));
-                Log.e("cart customer id", String.valueOf(customer_id));
-                Log.e("cart Product name", String.valueOf(product_name));
-                Log.e("cart quantity", String.valueOf(quantity));
-                Log.e("cart amount", String.valueOf(amount));
-                Log.e("cart product_picture", String.valueOf(product_picture));
+                if(UserData.getCust_id()==null)
+                {
+                    Toast.makeText(getApplicationContext(),"Please login your Account first",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Productpage.this ,MainActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    product_id = intent.getIntExtra("product_id", 0);
+                    customer_id = UserData.getCust_id();
+                    product_name = String.valueOf(intent_name);
+                    amount = Double.valueOf(intent_price);
+                    quantity = Integer.valueOf(String.valueOf(counter.getText()));
+                    stocks = intent.getIntExtra("product_stock",0);
+                    product_picture = String.valueOf(intent_picture);
 
-                passdata();
+                    Log.e("cart id SA PRODUCT PAGE", String.valueOf(product_id));
+                    Log.e("cart customer id", String.valueOf(customer_id));
+                    Log.e("cart Product name", String.valueOf(product_name));
+                    Log.e("cart quantity", String.valueOf(quantity));
+                    Log.e("cart amount", String.valueOf(amount));
+                    Log.e("cart product_picture", String.valueOf(product_picture));
 
-                Intent intent = new Intent(Productpage.this,cartpage.class);
-                startActivity(intent);
+                    passdata();
+
+                    Intent intent = new Intent(Productpage.this,cartpage.class);
+                    startActivity(intent);
+                }
+
 
             }
         });

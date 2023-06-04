@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Recyclerpage extends AppCompatActivity {
 
@@ -41,6 +42,7 @@ public class Recyclerpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the upper part
         setContentView(R.layout.activity_recyclerpage);
 
 
