@@ -143,9 +143,10 @@ public class MainActivity extends AppCompatActivity {
                     String customer_houseno= object.getString("customer_houseno");
                     String customer_street = object.getString("customer_street");
                     String customer_city = object.getString("customer_city");
+                    String customer_brgy = object.getString("customer_brgy");
                     Integer customerClass_id = object.getInt("customerClass_id");
 
-                    UserData userData = new UserData(customer_id, customerClass_id, customer_contactNo, customer_firstname, customer_lastname, customer_houseno, customer_street, customer_city);
+                    UserData userData = new UserData(customer_id, customerClass_id, customer_contactNo, customer_firstname, customer_lastname, customer_houseno, customer_street, customer_city, customer_brgy);
                     mUserData.add(userData);
 
 
