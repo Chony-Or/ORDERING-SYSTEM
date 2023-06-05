@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     EditText customer_name;
     EditText customer_password;
     public ArrayList<UserData> mUserData = new ArrayList<>();
+    private CheckBox termsCheckbox;
     private static final String getCustomer_Data = "http:/" + Constants.IP_ADDRESS + "/test_conn/getCustomer.php";
     private static final String getUser_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/login.php";
     public String c_name, c_password;
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         b_login = (Button) findViewById(R.id.b_login);
         customer_name = (EditText) findViewById(R.id.customer_name);
         customer_password = (EditText) findViewById(R.id.customer_password);
+        termsCheckbox = findViewById(R.id.termsCheckbox);
         b_guest = findViewById(R.id.b_guest);
     }
 

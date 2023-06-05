@@ -1,13 +1,16 @@
 package com.example.orderingsystem;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +30,7 @@ public class SignupPage extends AppCompatActivity {
     EditText cust_firstname, cust_lastname, cust_number, cust_houseno, cust_street, cust_city,cust_brgy, cust_username, cust_password, cust_confirm;
     Button signup_bt;
     public ArrayList<UserData> mUserData = new ArrayList<>();
+    private CheckBox termsCheckbox;
     private static final String putguest_Url = "http://" + Constants.IP_ADDRESS + "/db_conn/fillup.php";
 
     @Override
@@ -37,6 +41,13 @@ public class SignupPage extends AppCompatActivity {
 
         init();
 
+        signup_bt.setEnabled(false);
+        termsCheckbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTermsAndConditionsDialog();
+            }
+        });
         signup_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +64,6 @@ public class SignupPage extends AppCompatActivity {
 
                 if (!firstname.equals("") && !lastname.equals("")&& !houseno.equals("")&& !street.equals("")&& !city.equals("")&& !brgy.equals("")&& !username.equals("")&& !password.equals("")&& !confirmpass.equals("")&& !number.equals(""))
                 {
-
                     int len = 0;
                     len = number.length();
                     if(len == 11)
@@ -134,9 +144,42 @@ public class SignupPage extends AppCompatActivity {
         cust_city = (EditText) findViewById(R.id.cust_city);
         cust_brgy = (EditText) findViewById(R.id.cust_brgy);
         cust_username = (EditText) findViewById(R.id.cust_username);
+        termsCheckbox = findViewById(R.id.termsCheckbox);
         cust_password = (EditText) findViewById(R.id.cust_password);
         cust_confirm = (EditText) findViewById(R.id.cust_confirmpass);
         signup_bt = (Button) findViewById(R.id.signup_bt);
 
+    }
+    private void showTermsAndConditionsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Terms and Conditions");
+
+        // Set the message and checkbox for the alert dialog
+        builder.setMessage("Please read and accept the terms and conditions.")
+                .setView(R.layout.dialog_terms_and_conditions)
+                .setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Check if the checkbox is checked
+                        if (termsCheckbox.isChecked()) {
+                            // Enable the button and proceed to the next page
+                            signup_bt.setEnabled(true);
+                            // Add your code to navigate to the next page here
+                        } else {
+                            // User declined the terms and conditions, do not proceed
+                            signup_bt.setEnabled(false);
+                        }
+                    }
+                })
+                .setNegativeButton("Decline", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User declined the terms and conditions, do not proceed
+                        signup_bt.setEnabled(false);
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

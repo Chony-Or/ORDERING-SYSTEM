@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="623dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terms and Conditions"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="1535dp"
+                android:text="Terms and Conditions - LA BVRGS Online Ordering System  Please read these Terms and Conditions carefully before using the LA BVRGS Online Ordering System (&quot;the Application&quot;). These Terms and Conditions govern your access to and use of the Application provided by LA BVRGS. By using the Application, you agree to be bound by these Terms and Conditions.\n\n
+        Application Use: \n\t a. LA BVRGS grants you a limited, non-exclusive, non-transferable, revocable license to use the Application for the purpose of placing beverage orders and accessing related services offered by LA BVRGS.\n\t b. You must be of legal age to use the Application or have the permission of a legal guardian.\n\n\
+        User Account:\n\t a. To use certain features of the Application, you may be required to create a user account. You are responsible for maintaining the confidentiality of your account credentials and are solely responsible for any activity that occurs under your account.\n\t b. You agree to provide accurate, complete, and up-to-date information when creating your account. \n\tc. LA BVRGS reserves the right to suspend or terminate your account if any provided information is found to be inaccurate, misleading, or in violation of these Terms and Conditions.\n\n
+        Ordering and Payments:\n\t a. You may place beverage orders through the Application by selecting your desired items and providing the necessary details, including delivery address and payment information.\n\t b. LA BVRGS accepts various payment methods as specified within the Application. By placing an order, you authorize LA BVRGS to charge the provided payment method for the total amount due, including applicable taxes and fees.\n\t c. Prices and availability of beverages are subject to change without prior notice. LA BVRGS reserves the right to cancel or refuse any order in its sole discretion.\n\n
+        Intellectual Property:\n\t a. The Application and its contents, including but not limited to text, graphics, logos, images, audio clips, and software, are the property of LA BVRGS and protected by copyright and other intellectual property laws.\n\t b. You may not reproduce, distribute, modify, transmit, or use any material from the Application without prior written permission from LA BVRGS.\n\n
+        Limitation of Liability:\n\t a. LA BVRGS shall not be held liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with the use of the Application or the inability to use it.\n\t b. LA BVRGS does not warrant the accuracy, completeness, or reliability of any information or content provided within the Application.\n\n
+        Privacy:\n\t a. The collection and use of your personal data are governed by our Privacy Policy, which is incorporated into these Terms and Conditions by reference. By using the Application, you consent to the collection, storage, and use of your personal data as described in the Privacy Policy.\n\n
+        Termination:\n\t a. LA BVRGS reserves the right to suspend or terminate your access to the Application at any time and for any reason without prior notice.\n\t b. Upon termination, you must cease all use of the Application and delete any copies in your possession.\n\n
+        Governing Law and Jurisdiction:\n\t a. These Terms and Conditions shall be governed by and construed in accordance with the laws of [insert jurisdiction]. Any disputes arising out of or relating to these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of [insert jurisdiction].\n\n
+        Amendments:\n\t a. LA BVRGS reserves the right to modify or update these Terms and Conditions at any time without prior notice. The updated Terms and Conditions will be posted within the Application, and your continued use of the Application after the changes will constitute your acceptance of the modified Terms and Conditions.
+        \n\n\nIf you have any questions or concerns about these Terms and Conditions, please contact LA BVRGS customer support at LA BVRGS Facebook Page " />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
